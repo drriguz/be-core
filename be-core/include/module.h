@@ -1,7 +1,7 @@
 #ifndef _BE_DESIGNER_MODULE_H_
 #define _BE_DESIGNER_MODULE_H_
 
-#include "Object.h"
+#include "object.h"
 
 #include <map>
 #include <string>
@@ -11,6 +11,7 @@ namespace bd{
     class Datafield;
     class EventRule;
     class Rule;
+    class Context;
 }
 
 namespace bd{
@@ -21,6 +22,7 @@ namespace bd{
         Module(const Module& module);
     public:
         virtual void addChild();
+        virtual void bindRules();
         virtual bool isSelected();
         virtual bool isChildAdded();
         virtual bool isEventBinded();
@@ -28,11 +30,12 @@ namespace bd{
         virtual std::map<std::string, Datafield*> getDatafields();
         virtual Object* getObject(const std::string &url);
         virtual ObjectType getType();
+        virtual bool init(Context &context);
     protected:
         std::map<std::string, Datafield*> _datafields;
         std::map<std::string, Module*> _modules;
-        std::list<EventRule> _eventRules;
-        std::list<Rule> _rules;
+        std::list<EventRule*> _eventRules;
+        std::list<Rule*> _rules;
         bool _selected;
         bool _childAdded;
         bool _eventBinded;

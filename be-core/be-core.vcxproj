@@ -21,7 +21,7 @@
     <ClCompile Include="src\object.cpp" />
     <ClCompile Include="src\datafield.cpp" />
     <ClCompile Include="src\event.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="demo\main.cpp" />
     <ClCompile Include="src\module.cpp" />
     <ClCompile Include="src\transaction.cpp" />
     <ClCompile Include="src\utils.cpp" />
@@ -29,6 +29,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo\Cpp.hpp" />
+    <ClInclude Include="demo\Cppgrp.hpp" />
+    <ClInclude Include="demo\Cppgrp_events.h" />
     <ClInclude Include="demo\Cpptst.hpp" />
     <ClInclude Include="demo\Entity.h" />
     <ClInclude Include="demo\project.h" />

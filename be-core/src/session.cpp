@@ -8,12 +8,14 @@
 using namespace bd;
 
 Session::Session():_isDirectCall(true){
-
+    this->_context = new Context();
 }
 
 Session::~Session(){
     if (this->_transaction)
         delete this->_transaction;
+    if (this->_context)
+        delete this->_context;
 }
 
 bool Session::isDirectCall(){
@@ -42,6 +44,7 @@ bool Session::chain(const std::string &trans, bool returnCall){
     this->_transaction = t;
     this->_transName = trans;
     this->_isDirectCall = !returnCall;
+    this->invokeInitRule();
     return true;
 }
 
@@ -93,4 +96,8 @@ bool Session::invokeEventRule(const Datafield &datafield, EventType type){
 
 bool Session::invokeCheckRule(const Datafield &datafield){
     return false;
+}
+
+bool Session::invokeInitRule(){
+    return RuleUtils::invokeInitRule(this->_transaction, *this->_context);
 }

@@ -1,8 +1,7 @@
 #ifndef _TST_CPP_HPP_H_
 #define _TST_CPP_HPP_H_
 
-#include "module.h"
-#include "datafield.h"
+#include "be-designer.h"
 
 namespace bd{
     class Cpp:public Module{
@@ -10,6 +9,7 @@ namespace bd{
         Cpp(){
             this->_inr = new Datafield(typeid(std::string));
             this->_remark = new Datafield(typeid(std::string));
+            this->addChild();
         }
         ~Cpp(){
             if (this->_inr)

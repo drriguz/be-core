@@ -9,6 +9,8 @@
 namespace bd{
     class Rule;
     class EventRule;
+    class Module;
+    class Context;
 }
 
 namespace bd{
@@ -16,6 +18,7 @@ namespace bd{
     public:
         static void sort(std::list<Rule> &list);
         static void sort(std::list<EventRule> &list);
+        static bool invokeInitRule(Module *root, Context &context);
     };
 
     class UrlUtils{

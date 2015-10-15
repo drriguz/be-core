@@ -14,7 +14,7 @@ namespace bd{
         Register();
         ~Register();
     public:
-        static bool createTransaction(const std::string &name, Transaction* trans);
+        static bool createTransaction(const std::string &name, Transaction* &trans);
     };
 }
 #endif

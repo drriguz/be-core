@@ -12,6 +12,8 @@ namespace bd{
         ~EventRule();
     public:
         virtual bool invoke(Context &context, Event eventType);
+    protected:
+        EventType _type;
     };
 }
 

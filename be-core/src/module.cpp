@@ -54,3 +54,11 @@ Object* Module::getObject(const std::string &url){
         return d;
     return NULL;
 }
+
+void Module::bindRules(){
+
+}
+
+bool Module::init(Context &context){
+    return true;
+}

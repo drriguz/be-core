@@ -33,6 +33,7 @@ namespace bd{
         virtual bool setValue(const std::string &url, int value);
         virtual bool invokeEventRule(const Datafield &datafield, EventType type);
         virtual bool invokeCheckRule(const Datafield &datafield);
+        virtual bool invokeInitRule();
     protected:
         Context *_context;
         Transaction *_transaction;

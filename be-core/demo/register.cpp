@@ -12,7 +12,7 @@ Register::~Register(){
 
 }
 
-bool Register::createTransaction(const std::string &name, Transaction* trans){
+bool Register::createTransaction(const std::string &name, Transaction* &trans){
     if (name == "cpptst"){
         trans = new Cpptst();
         return true;
