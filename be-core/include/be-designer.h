@@ -4,8 +4,8 @@
 #include "auth.h"
 #include "context.h"
 #include "eventRule.h"
-#include "moduleSession.h"
-#include "moduleSupport.h"
+#include "session.h"
+#include "Persistence.h"
 #include "presentation.h"
 #include "rule.h"
 #include "attribute.h"
@@ -17,5 +17,7 @@
 #include "module.h"
 #include "moduleList.h"
 #include "panel.h"
+#include "transaction.h"
+#include "register.h"
 
 #endif

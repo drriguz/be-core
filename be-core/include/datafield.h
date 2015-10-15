@@ -27,6 +27,7 @@ namespace bd{
         virtual void setValue(boost::any& value);
         virtual std::string toString() const;
         virtual void clear();
+        virtual ObjectType getType();
     protected:
         void sortRules();
     protected:

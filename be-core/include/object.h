@@ -8,6 +8,12 @@
 #include "attribute.h"
 
 namespace bd{    
+    enum ObjectType{
+        OBJECT,
+        MODULE,
+        DATAFIELD
+    };
+
     class Object :public Attribute{
     public:
         Object();
@@ -22,10 +28,11 @@ namespace bd{
         virtual std::string toString() const;
         virtual void clear();
         virtual bool isEmpty();
+        virtual ObjectType getType();
     protected:
         std::string _name;
         std::string _url;
-        Object* _parent;        
+        Object* _parent;
     };
 }
 

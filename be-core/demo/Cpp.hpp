@@ -26,11 +26,11 @@ namespace bd{
             }            
         }
     public:
-        void set_Inr(const std::string & inr){
-            this->_inr->setValue(boost::any(inr));
+        void set_Inr(const std::string & value){
+            this->_inr->setValue(boost::any(value));
         }
-        void set_Remark(const std::string &remark){
-            this->_remark->setValue(boost::any(remark));
+        void set_Remark(const std::string &value){
+            this->_remark->setValue(boost::any(value));
         }
         std::string get_Inr(){
             return boost::any_cast<std::string>(*this->_inr);

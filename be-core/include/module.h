@@ -9,6 +9,8 @@
 
 namespace bd{
     class Datafield;
+    class EventRule;
+    class Rule;
 }
 
 namespace bd{
@@ -24,9 +26,13 @@ namespace bd{
         virtual bool isEventBinded();
         virtual std::map<std::string, Module*> getModules();
         virtual std::map<std::string, Datafield*> getDatafields();
+        virtual Object* getObject(const std::string &url);
+        virtual ObjectType getType();
     protected:
         std::map<std::string, Datafield*> _datafields;
         std::map<std::string, Module*> _modules;
+        std::list<EventRule> _eventRules;
+        std::list<Rule> _rules;
         bool _selected;
         bool _childAdded;
         bool _eventBinded;

@@ -1,4 +1,8 @@
 #include "module.h"
+#include "eventRule.h"
+#include "datafield.h"
+#include "rule.h"
+
 using namespace bd;
 
 Module::Module() :_selected(false), _childAdded(false), _eventBinded(false){
@@ -35,4 +39,18 @@ std::map<std::string, Module*> Module::getModules(){
 
 std::map<std::string, Datafield*> Module::getDatafields(){
     return this->_datafields;
+}
+
+ObjectType Module::getType(){
+    return ObjectType::MODULE;
+}
+
+Object* Module::getObject(const std::string &url){
+    Module* m = this->_modules[url];
+    if (m)
+        return m;
+    Datafield* d = this->_datafields[url];
+    if (d)
+        return d;
+    return NULL;
 }

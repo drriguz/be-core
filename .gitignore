@@ -5,3 +5,4 @@ Debug
 *.obj
 *.log
 *.pdb
+*.opensdf

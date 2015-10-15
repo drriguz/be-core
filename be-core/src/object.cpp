@@ -3,53 +3,57 @@
 #include <map>
 #include <string>
 #include <boost\any.hpp>
+using namespace bd;
 
-
-bd::Object::Object(){
+Object::Object(){
 
 }
 
-bd::Object::~Object(){
+Object::~Object(){
     //if (this->_value != NULL)
     //    delete this->_value;
 }
 
-std::string bd::Object::getName() const{
+std::string Object::getName() const{
     return this->_name;
 }
 
-std::string bd::Object::getUrl() const{
+std::string Object::getUrl() const{
     return this->_url;
 }
 
-void bd::Object::setName(const std::string &name){
+void Object::setName(const std::string &name){
     this->_name = name;
 }
 
-void bd::Object::setUrl(const std::string &url){
+void Object::setUrl(const std::string &url){
     this->_url = url;
 }
 
-bd::Object* bd::Object::getParent(){
+Object* Object::getParent(){
     return this->_parent;
 }
 
 
 
-void bd::Object::setParent(bd::Object *parent){
+void Object::setParent(Object *parent){
     this->_parent = parent;
 }
 
-void bd::Object::clear(){
+void Object::clear(){
     //this->_value = NULL;
 }
 
-std::string bd::Object::toString() const{
+std::string Object::toString() const{
     
     return std::string();
 }
 
-bool bd::Object::isEmpty(){
+bool Object::isEmpty(){
     //return this->_value == NULL;
     return NULL;
+}
+
+ObjectType Object::getType(){
+    return ObjectType::OBJECT;
 }

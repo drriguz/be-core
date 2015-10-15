@@ -11,10 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="demo\register.cpp" />
     <ClCompile Include="src\auth.cpp" />
     <ClCompile Include="src\context.cpp" />
     <ClCompile Include="src\eventRule.cpp" />
-    <ClCompile Include="src\moduleSupport.cpp" />
+    <ClCompile Include="src\persistence.cpp" />
     <ClCompile Include="src\rule.cpp" />
     <ClCompile Include="src\attribute.cpp" />
     <ClCompile Include="src\object.cpp" />
@@ -22,16 +23,21 @@
     <ClCompile Include="src\event.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\module.cpp" />
-    <ClCompile Include="src\ruleUtils.cpp" />
+    <ClCompile Include="src\transaction.cpp" />
+    <ClCompile Include="src\utils.cpp" />
+    <ClCompile Include="src\session.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo\Cpp.hpp" />
+    <ClInclude Include="demo\Cpptst.hpp" />
     <ClInclude Include="demo\Entity.h" />
+    <ClInclude Include="demo\project.h" />
     <ClInclude Include="include\auth.h" />
     <ClInclude Include="include\context.h" />
     <ClInclude Include="include\eventRule.h" />
-    <ClInclude Include="include\moduleSession.h" />
-    <ClInclude Include="include\moduleSupport.h" />
+    <ClInclude Include="include\register.h" />
+    <ClInclude Include="include\session.h" />
+    <ClInclude Include="include\persistence.h" />
     <ClInclude Include="include\presentation.h" />
     <ClInclude Include="include\rule.h" />
     <ClInclude Include="include\attribute.h" />
@@ -44,7 +50,8 @@
     <ClInclude Include="include\module.h" />
     <ClInclude Include="include\moduleList.h" />
     <ClInclude Include="include\panel.h" />
-    <ClInclude Include="include\ruleUtils.h" />
+    <ClInclude Include="include\utils.h" />
+    <ClInclude Include="include\transaction.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9AC06881-4F8B-4F4D-9887-A55520A6EEB9}</ProjectGuid>
@@ -87,7 +94,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Boost\include\boost-1_59;$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

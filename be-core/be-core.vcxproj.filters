@@ -21,9 +21,6 @@
     <ClCompile Include="src\datafield.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\ruleUtils.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\module.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -39,9 +36,6 @@
     <ClCompile Include="src\rule.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\moduleSupport.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\eventRule.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -49,6 +43,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\auth.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\persistence.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\register.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\transaction.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,9 +69,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\module.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ruleUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\event.h">
@@ -98,12 +104,6 @@
     <ClInclude Include="include\eventRule.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\moduleSession.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\moduleSupport.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="include\presentation.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -111,6 +111,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\object.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\session.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\transaction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\persistence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\Cpptst.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\project.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

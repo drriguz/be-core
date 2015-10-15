@@ -1,9 +1,9 @@
 #include "datafield.h"
-#include "ruleUtils.h"
-#include "Object.h"
-#include "Context.h"
-#include "Rule.h"
-#include "EventRule.h"
+#include "utils.h"
+#include "object.h"
+#include "context.h"
+#include "rule.h"
+#include "eventRule.h"
 
 #include <boost\lexical_cast\lexical_cast_old.hpp>
 using namespace bd;
@@ -57,4 +57,8 @@ std::string Datafield::toString() const{
 
 void Datafield::clear(){
     this->_value = NULL;
+}
+
+ObjectType Datafield::getType(){
+    return ObjectType::DATAFIELD;
 }
