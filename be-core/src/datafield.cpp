@@ -12,12 +12,12 @@ Datafield::Datafield():_typeName(typeid(std::string).name()){
     this->_ruleSorted = false;
 }
 
-Datafield::Datafield(const type_info& type):_typeName(type.name()){
-    
+Datafield::Datafield(const type_info& type):_typeName(type.name()){    
 }
 
 Datafield::~Datafield(){
-
+    if (this->_value)
+        delete this->_value;
 }
 
 void Datafield::addEventRule(const EventRule &rule){
@@ -37,8 +37,11 @@ bool Datafield::invokeEventRules(Context &context){
     return true;
 }
 
-void Datafield::setValue(boost::any& value){
-    this->_value = &value;
+
+void Datafield::setValue(const std::string &value){
+    if (this->_value)
+        delete this->_value;
+    this->_value = new boost::any(value);
 }
 
 boost::any* Datafield::getValue() const{
@@ -48,8 +51,6 @@ boost::any* Datafield::getValue() const{
 std::string Datafield::toString() const{
     if (this->_value->type() == typeid(int))
         return boost::lexical_cast<std::string>(boost::any_cast<int>(*this->_value));
-    if (this->_value->type() == typeid(std::string))
-        return boost::any_cast<std::string>(*this->_value);
     if (this->_value->type() == typeid(std::string))
         return boost::any_cast<std::string>(*this->_value);
     return NULL;

@@ -75,7 +75,7 @@ Object* Session::getObject(const std::string &url){
         if (m->getType() == ObjectType::MODULE)
             m = ((Module*)m)->getObject(p);
     }
-    if (!m)
+    if (m)
         return m;
     return NULL;
 }

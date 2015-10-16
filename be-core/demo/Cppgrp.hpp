@@ -41,6 +41,9 @@ namespace bd{
         virtual bool init(Context &context){
             return this->_cppgrp_init_100->invoke(context);
         }
+        Cpp* getCpp(){
+            return this->_cpp;
+        }
     protected:
         Cpp* _cpp;
         Cppgrp_Init_100* _cppgrp_init_100;

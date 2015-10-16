@@ -23,8 +23,16 @@ namespace bd{
     public:
         void addEventRule(const EventRule &rule);        
         virtual bool invokeEventRules(Context &context);
-        virtual boost::any* getValue() const;
-        virtual void setValue(boost::any& value);
+        virtual boost::any* getValue() const;        
+        virtual void setValue(const std::string &value);
+
+        template<typename  T>
+        void setValue(T value){
+            if (this->_value)
+                delete this->_value;
+            this->_value = new boost::any(value);
+        }
+        
         virtual std::string toString() const;
         virtual void clear();
         virtual ObjectType getType();

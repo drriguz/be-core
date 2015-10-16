@@ -31,16 +31,19 @@ namespace bd{
             }
         }
         void set_B1(const std::string & value){
-            this->_b1->setValue(boost::any(value));
+            this->_b1->setValue(value);
         }
         void set_T1(const std::string &value){
-            this->_t1->setValue(boost::any(value));
+            this->_t1->setValue(value);
         }
         std::string get_B1(){
             return boost::any_cast<std::string>(*this->_b1);
         }
         std::string get_T1(){
             return boost::any_cast<std::string>(*this->_t1);
+        }
+        Cppgrp* getCppgrp(){
+            return this->_cppgrp;
         }
     protected:
         Datafield* _b1;
