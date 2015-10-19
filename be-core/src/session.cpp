@@ -1,21 +1,23 @@
 #include "session.h"
 #include "register.h"
+#include "datafield.h"
 #include "transaction.h"
 #include "utils.h"
+#include "event.h"
 #include <boost\any.hpp>
 
 
 using namespace bd;
 
-Session::Session():_isDirectCall(true){
-    this->_context = new Context();
+Session::Session(Context &contex):_isDirectCall(true),_context(&contex){
+    //this->_context = new Context();
 }
 
 Session::~Session(){
     if (this->_transaction)
         delete this->_transaction;
-    if (this->_context)
-        delete this->_context;
+    //if (this->_context)
+    //    delete this->_context;
 }
 
 bool Session::isDirectCall(){
@@ -44,6 +46,8 @@ bool Session::chain(const std::string &trans, bool returnCall){
     this->_transaction = t;
     this->_transName = trans;
     this->_isDirectCall = !returnCall;
+	this->_transaction->addChild();
+	this->_transaction->bindRules(this->_context);
     this->invokeInitRule();
     return true;
 }
@@ -90,8 +94,8 @@ bool Session::setValue(const std::string &url, int value){
     return false;
 }
 
-bool Session::invokeEventRule(const Datafield &datafield, EventType type){
-    return false;
+bool Session::invokeEventRule(Datafield &datafield, Event type){
+	return datafield.invokeEventRules(*this->_context, type);
 }
 
 bool Session::invokeCheckRule(const Datafield &datafield){

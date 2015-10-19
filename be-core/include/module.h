@@ -22,7 +22,7 @@ namespace bd{
         Module(const Module& module);
     public:
         virtual void addChild();
-        virtual void bindRules();
+        virtual void bindRules(Context *context);
         virtual bool isSelected();
         virtual bool isChildAdded();
         virtual bool isEventBinded();
@@ -30,7 +30,6 @@ namespace bd{
         virtual std::map<std::string, Datafield*> getDatafields();
         virtual Object* getObject(const std::string &url);
         virtual ObjectType getType();
-        virtual bool init(Context &context);
     protected:
         std::map<std::string, Datafield*> _datafields;
         std::map<std::string, Module*> _modules;

@@ -3,11 +3,14 @@
 
 #include <map>
 #include <string>
+#include <list>
 #include <boost\any.hpp>
 
 #include "attribute.h"
 
 namespace bd{    
+	class Rule;
+
     enum ObjectType{
         OBJECT,
         MODULE,
@@ -29,10 +32,13 @@ namespace bd{
         virtual void clear();
         virtual bool isEmpty();
         virtual ObjectType getType();
+		virtual void addInitRule(Rule *rule);
+		virtual std::list<Rule*> getInitRules();
     protected:
         std::string _name;
         std::string _url;
         Object* _parent;
+		std::list<Rule*> _initRules;
     };
 }
 

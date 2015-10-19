@@ -3,12 +3,13 @@
 
 namespace bd{
     class Context;
+	class Module;
 }
 
 namespace bd{
     class Rule{
     public:
-        Rule();
+		Rule(Module *parent);		
         ~Rule();
     public:
         virtual int getOrder();
@@ -17,6 +18,7 @@ namespace bd{
         bool operator < (const Rule &m) const;
     protected:
         int _order;
+		Module* _parent;
     };
 }
 

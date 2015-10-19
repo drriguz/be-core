@@ -10,9 +10,12 @@ using namespace bd;
 
 Datafield::Datafield():_typeName(typeid(std::string).name()){
     this->_ruleSorted = false;
+	
 }
 
-Datafield::Datafield(const type_info& type):_typeName(type.name()){    
+Datafield::Datafield(const type_info& type):_typeName(type.name()){   
+	if (type == typeid(int))
+		this->setValue(0);
 }
 
 Datafield::~Datafield(){
@@ -20,7 +23,7 @@ Datafield::~Datafield(){
         delete this->_value;
 }
 
-void Datafield::addEventRule(const EventRule &rule){
+void Datafield::addEventRule(EventRule *rule){
     this->_eventRuleList.push_back(rule);
     this->_ruleSorted = false;
 }
@@ -31,12 +34,14 @@ void Datafield::sortRules(){
     this->_ruleSorted = true;
 }
 
-bool Datafield::invokeEventRules(Context &context){
+bool Datafield::invokeEventRules(Context &context, Event eventType){
     if (!this->_ruleSorted)
         this->sortRules();
-    return true;
+	return RuleUtils::invokeEventRule(this, &context, eventType);
 }
-
+std::list<EventRule*>* Datafield::getEventRules() {
+	return &this->_eventRuleList;
+}
 
 void Datafield::setValue(const std::string &value){
     if (this->_value)

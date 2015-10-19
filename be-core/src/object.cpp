@@ -1,4 +1,5 @@
-#include "Object.h"
+#include "object.h"
+#include "rule.h"
 
 #include <map>
 #include <string>
@@ -56,4 +57,11 @@ bool Object::isEmpty(){
 
 ObjectType Object::getType(){
     return ObjectType::OBJECT;
+}
+void Object::addInitRule(Rule *rule) {
+	this->_initRules.push_back(rule);
+}
+
+std::list<Rule*> Object::getInitRules() {
+	return this->_initRules;
 }

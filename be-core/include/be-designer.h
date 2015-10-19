@@ -19,5 +19,6 @@
 #include "panel.h"
 #include "transaction.h"
 #include "register.h"
+#include "utils.h"
 
 #endif

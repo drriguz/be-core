@@ -9,8 +9,7 @@ namespace bd{
         Cpp(){
             this->_inr = new Datafield(typeid(std::string));
             this->_remark = new Datafield(typeid(std::string));
-            this->_number = new Datafield(typeid(int));
-            this->addChild();
+            this->_number = new Datafield(typeid(int));            
         }
         ~Cpp(){
             if (this->_inr)
@@ -29,6 +28,9 @@ namespace bd{
                 this->_childAdded = true;
             }            
         }
+		virtual void bindRules(Context *context) {
+
+		}
     public:
         void set_Inr(const std::string & value){
             this->_inr->setValue(value);
@@ -36,14 +38,18 @@ namespace bd{
         void set_Remark(const std::string &value){
             this->_remark->setValue(value);
         }
-        std::string get_Inr(){
-            return boost::any_cast<std::string>(*this->_inr);
+		void set_Number(int value) {
+			this->_number->setValue(value);
+		}
+
+		Datafield* get_Inr(){
+            return this->_inr;
         }
-        std::string get_Remark(){
-            return boost::any_cast<std::string>(*this->_remark);
+		Datafield* get_Remark(){
+            return this->_remark;
         }
-        int get_Number(){
-            return boost::any_cast<int>(*this->_number);
+		Datafield* get_Number(){
+            return this->_number;
         }
     protected:
         Datafield* _inr;

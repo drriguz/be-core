@@ -7,6 +7,7 @@ namespace bd{
     class Module;
     class Auth;
     class Persistence;
+	class Session;
 }
 
 namespace bd{
@@ -27,9 +28,10 @@ namespace bd{
         virtual void setSessionId(const std::string &sessionId);
         virtual void setEntity(const std::string &entityName);
         virtual void setErrorCode(int errorCode);
+		virtual Session* getSession();
     protected:
+		Session* _session;
         Auth *_auth;
-        Module *_rootModule;
         Persistence *_Persistence;
         int _errorCode;
         std::string _sessionId;

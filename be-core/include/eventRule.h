@@ -8,7 +8,7 @@
 namespace bd{
     class EventRule :public Rule{
     public:
-        EventRule();
+        EventRule(Module* parent);
         ~EventRule();
     public:
         virtual bool invoke(Context &context, Event eventType);

@@ -1,7 +1,8 @@
-#include "Rule.h"
+#include "rule.h"
+#include "module.h"
 using namespace bd;
 
-Rule::Rule(){
+Rule::Rule(Module* parent):_parent(parent){
 
 }
 

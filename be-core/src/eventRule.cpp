@@ -2,7 +2,7 @@
 
 using namespace bd;
 
-EventRule::EventRule(){
+EventRule::EventRule(Module* parent):Rule(parent){
 
 }
 

@@ -12,12 +12,12 @@ namespace bd{
     class Datafield;
     class Object;
     class Transaction;
-    enum EventType;
+    class Event;
 }
 namespace bd{
     class Session{
     public:
-        Session();
+        Session(Context &contex);
         ~Session();
     public:
         virtual bool isDirectCall();
@@ -31,7 +31,7 @@ namespace bd{
         virtual Object* getObject(const std::string &url);        
         virtual bool setValue(const std::string &url, const std::string& value);
         virtual bool setValue(const std::string &url, int value);
-        virtual bool invokeEventRule(const Datafield &datafield, EventType type);
+        virtual bool invokeEventRule(Datafield &datafield, Event type);
         virtual bool invokeCheckRule(const Datafield &datafield);
         virtual bool invokeInitRule();
     protected:

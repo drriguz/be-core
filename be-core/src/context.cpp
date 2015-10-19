@@ -1,15 +1,17 @@
-#include "Context.h"
-#include "Auth.h"
-#include "Persistence.h"
+#include "context.h"
+#include "auth.h"
+#include "persistence.h"
 #include "module.h"
+#include "session.h"
 using namespace bd;
 
 Context::Context(){
-
+	this->_session = new Session(*this);
 }
 
 Context::~Context(){
-
+	if (this->_session)
+		delete this->_session;
 }
 
 Auth* Context::getAuth() const{
@@ -33,9 +35,11 @@ std::string Context::getEntity() const{
 }
 
 Module* Context::getRootModule(){
-    return this->_rootModule;
+    return (Module*)this->_session->getTransaction();
 }
-
+Session* Context::getSession() {
+	return this->_session;
+}
 Persistence* Context::getPersistence(){
     return this->_Persistence;
 }

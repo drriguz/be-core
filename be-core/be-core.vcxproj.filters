@@ -60,6 +60,9 @@
     <ClCompile Include="demo\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo\Events.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\attribute.h">
@@ -137,7 +140,7 @@
     <ClInclude Include="demo\Cppgrp.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo\Cppgrp_events.h">
+    <ClInclude Include="demo\Events.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

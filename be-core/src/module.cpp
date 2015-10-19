@@ -55,10 +55,6 @@ Object* Module::getObject(const std::string &url){
     return NULL;
 }
 
-void Module::bindRules(){
+void Module::bindRules(Context *context){
 
-}
-
-bool Module::init(Context &context){
-    return true;
 }
