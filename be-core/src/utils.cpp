@@ -48,3 +48,10 @@ bool RuleUtils::invokeEventRule(Datafield *field, Context *context, Event eventT
 	}
 	return true;
 }
+
+int ModuleUtils::getIntValue(Datafield &d) {
+	return boost::any_cast<int>(*d.getValue());
+}
+std::string ModuleUtils::getValue(Datafield &d) {
+	return boost::any_cast<std::string>(*d.getValue());
+}

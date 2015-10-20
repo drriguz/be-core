@@ -27,13 +27,8 @@ namespace bd{
 
 	class ModuleUtils {
 	public:
-		static int getIntValue(Datafield &d) {
-			return boost::any_cast<int>(*d.getValue());
-		}
-		static std::string getValue(Datafield &d) {
-			return boost::any_cast<std::string>(*d.getValue());
-		}
-
+		static int getIntValue(Datafield &d);
+		static std::string getValue(Datafield &d);
 	};
     class UrlUtils{
     public:

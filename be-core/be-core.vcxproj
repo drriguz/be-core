@@ -16,7 +16,9 @@
     <ClCompile Include="src\auth.cpp" />
     <ClCompile Include="src\context.cpp" />
     <ClCompile Include="src\eventRule.cpp" />
+    <ClCompile Include="src\moduleList.cpp" />
     <ClCompile Include="src\persistence.cpp" />
+    <ClCompile Include="src\presentation.cpp" />
     <ClCompile Include="src\rule.cpp" />
     <ClCompile Include="src\attribute.cpp" />
     <ClCompile Include="src\object.cpp" />

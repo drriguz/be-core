@@ -1,5 +1,6 @@
 #include "Events.h"
 #include "project.h"
+#include "attribute.h"
 using namespace bd;
 
 Cppgrp_Init_1000::Cppgrp_Init_1000(Cppgrp* parent) :Rule((Module*)parent) {
@@ -24,6 +25,7 @@ bool Cppgrp_btn_event_100::invoke(Context &context, Event eventType) {
 	std::cout << "Cppgrp/btn/onClick/100 invoked!" << std::endl;
 	int tmp = ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp());
 	((Cppgrp*)this->_parent)->set_Tmp(tmp + 1);
+	context.getPresentation()->setModified((Attribute*)((Cppgrp*)this->_parent)->get_Tmp());
 	return true;
 }
 //

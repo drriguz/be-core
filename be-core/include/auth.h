@@ -9,10 +9,14 @@ namespace bd{
         Auth();
         ~Auth();
     public:
-        virtual bool login();
+        virtual bool login(const std::string& user, const std::string& passwd);
         virtual bool logout();
         virtual bool isAuthed();
         virtual std::string getLoginUserName() const;
+	protected:
+		std::string _user;
+		bool _authed;
+		int _loginTime;
     };
 }
 

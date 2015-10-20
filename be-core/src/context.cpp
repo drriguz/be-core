@@ -3,18 +3,26 @@
 #include "persistence.h"
 #include "module.h"
 #include "session.h"
+#include "presentation.h"
+
 using namespace bd;
 
 Context::Context(){
 	this->_session = new Session(*this);
+	this->_auth = new Auth();
+	this->_presentation = new Presentation();
 }
 
 Context::~Context(){
 	if (this->_session)
 		delete this->_session;
+	if (this->_auth)
+		delete this->_auth;
+	if (this->_presentation)
+		delete this->_presentation;
 }
 
-Auth* Context::getAuth() const{
+Auth* Context::getAuth(){
     return this->_auth;
 }
 
@@ -22,8 +30,15 @@ int Context::getErrorCode(){
     return this->_errorCode;
 }
 
+bool Context::login(const std::string& user, const std::string& passwd) {
+	if (!this->_auth)
+		return false;
+	return this->_auth->login(user, passwd);
+}
 bool Context::logout(){
-    return true;
+	if (!this->_auth)
+		return false;
+	return this->_auth->logout();
 }
 
 std::string Context::getSessionId() const{
@@ -41,11 +56,14 @@ Session* Context::getSession() {
 	return this->_session;
 }
 Persistence* Context::getPersistence(){
-    return this->_Persistence;
+    return this->_persistence;
 }
 
+Presentation* Context::getPresentation() {
+	return this->_presentation;
+}
 void Context::setPersistence(Persistence *Persistence){
-    this->_Persistence = Persistence;
+    this->_persistence = Persistence;
 }
 
 void Context::setAuth(Auth *auth){

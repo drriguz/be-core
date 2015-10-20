@@ -4,6 +4,11 @@
 #include <map>
 #include <string>
 
+#define ATTR_MODIFIED  "MODIFIED"
+#define ATTR_DISABLED  "DISABLED"
+#define ATTR_READONLY  "READONLY"
+#define ATTR_INVISIBLE "INVISIBLE"
+
 namespace bd{
     class Attribute{
     public:
