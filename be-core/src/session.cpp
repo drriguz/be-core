@@ -105,3 +105,16 @@ bool Session::invokeCheckRule(const Datafield &datafield){
 bool Session::invokeInitRule(){
     return RuleUtils::invokeInitRule(this->_transaction, *this->_context);
 }
+
+Module* Session::getStaticModule(const std::string &name) {
+	return this->_staticModules[name];
+}
+
+void Session::setStaticModule(const std::string &name, Module* module) {
+	Module *old = this->_staticModules[name];
+	if (old){
+		delete old;
+		old = NULL;
+	}
+	this->_staticModules[name] = module;
+}

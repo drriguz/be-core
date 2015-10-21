@@ -6,6 +6,7 @@
 #include <string>
 #include <list>
 #include <stack>
+#include <map>
 
 namespace bd{
     class Module;
@@ -34,12 +35,16 @@ namespace bd{
         virtual bool invokeEventRule(Datafield &datafield, Event type);
         virtual bool invokeCheckRule(const Datafield &datafield);
         virtual bool invokeInitRule();
+
+		virtual Module* getStaticModule(const std::string &name);
+		virtual void setStaticModule(const std::string &name, Module* module);
     protected:
         Context *_context;
         Transaction *_transaction;
         bool _isDirectCall;
         std::string _transName;
         std::stack<Transaction*> _transStack;
+		std::map<std::string, Module*> _staticModules;
     };
 }
 
