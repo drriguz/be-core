@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <boost/any.hpp>
 
+#include <soci.h>
+#include <backends/sqlite3/soci-sqlite3.h>
+
 #include "bd/be-designer.h"
 #include "project.h"
 
@@ -10,6 +13,11 @@ using namespace std;
 using namespace bd;
 using namespace boost;
 
+
+
+int testSoci() {
+	return 1;
+}
 
 int main(int argc, char* argv[]){
 	bd::Context context;
@@ -46,3 +54,4 @@ int main(int argc, char* argv[]){
     system("pause");
     return 0;
 }
+
