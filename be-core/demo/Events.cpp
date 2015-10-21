@@ -1,7 +1,7 @@
 #include "Events.h"
 #include "project.h"
 #include "bd/attribute.h"
-using namespace bd;
+using namespace tst;
 
 Cppgrp_Init_1000::Cppgrp_Init_1000(Cppgrp* parent) :Rule((Module*)parent) {
 	this->_order = 1000;
@@ -23,9 +23,13 @@ Cppgrp_btn_event_100::~Cppgrp_btn_event_100() {
 }
 bool Cppgrp_btn_event_100::invoke(Context &context, Event eventType) {
 	std::cout << "Cppgrp/btn/onClick/100 invoked!" << std::endl;
-	int tmp = ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp());
-	((Cppgrp*)this->_parent)->set_Tmp(tmp + 1);
+	((Cppgrp*)this->_parent)->set_Tmp(ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp()) + 1);
+	((Cppgrp*)this->_parent)->getCpp()->set_Number(ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp()));
 	context.getPresentation()->setModified((Attribute*)((Cppgrp*)this->_parent)->get_Tmp());
+
+	((Cppgrp*)this->_parent)->getCpp()->set_Inr("XXXXXXXX");
+	((Cppgrp*)this->_parent)->getCpp()->set_Remark("Hello Soci:ÄãºÃ");
+	context.getPersistence()->save(((Cppgrp*)this->_parent)->getCpp());
 	return true;
 }
 //

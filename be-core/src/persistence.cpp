@@ -1,5 +1,10 @@
 #include "bd/persistence.h"
+#include <soci.h>
+#include <backends/sqlite3/soci-sqlite3.h>
 using namespace bd;
+
+std::string connectString = "demo/tst.db";
+const soci::backend_factory  &backEnd = *soci::factory_sqlite3();
 
 Persistence::Persistence(){
 
@@ -32,7 +37,14 @@ bool Persistence::lock(const char* key) {
 bool Persistence::unlock(const char* key) {
     return true;
 };
-bool Persistence::save(const Module *module) {
+bool Persistence::save(PersistenceAble *module) {
+	PersistenceAble*p = (PersistenceAble*)module;
+	Entity* e = p->createObject();
+	{
+		soci::session soci_session(backEnd, connectString);
+		e->save(soci_session);
+	}
+	delete e;
     return true;
 };
 bool Persistence::update(const Module *Module) {

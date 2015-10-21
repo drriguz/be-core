@@ -5,21 +5,36 @@
 
 #include <soci.h>
 #include <backends/sqlite3/soci-sqlite3.h>
-
 #include "bd/be-designer.h"
 #include "project.h"
 
 using namespace std;
 using namespace bd;
 using namespace boost;
+using namespace tst;
 
-
+//#define _TST_SOCI
+#ifdef _TST_SOCI
 
 int testSoci() {
+	soci::session sql(*soci::factory_sqlite3(), "demo/tst.db");
+	{		
+		std::string name;
+		sql <<"select inr from tst", soci::into(name);
+		cout << name << endl;
+		sql << "insert into cpp(inr, remark) values(:INR, :REMARK)"
+			, soci::use(std::string("XXXXXXXX"))
+			, soci::use(std::string("Hello Soci:ÄãºÃ"));
+	}
+
 	return 1;
 }
+#endif
 
 int main(int argc, char* argv[]){
+#ifdef _TST_SOCI
+	testSoci();
+#else
 	bd::Context context;
 	Session* session = context.getSession();
 	// test chain transaction
@@ -33,8 +48,8 @@ int main(int argc, char* argv[]){
 	}
 	Event e(EventType::ON_CLICK);	
 	
-	for (int i = 0; i < 10; i++)
-		session->invokeEventRule(*btn, e);
+	//for (int i = 0; i < 10; i++)
+	session->invokeEventRule(*btn, e);
 
 	// test module/field data binding
 	Module* m = (Module*)session->getObject("cppgrp/cpp");
@@ -50,8 +65,10 @@ int main(int argc, char* argv[]){
 	Datafield* n = (Datafield*)m->getObject("number");
 	n->setValue(8087);
 	cout << n->toString() << endl;
+#endif
+	
 	cout << "Done!" << endl;
-    system("pause");
-    return 0;
+	system("pause");
+	return 0;
 }
 

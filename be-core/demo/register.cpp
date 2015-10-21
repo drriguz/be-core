@@ -3,6 +3,7 @@
 #include "project.h"
 
 using namespace bd;
+using namespace tst;
 
 Register::Register(){
 

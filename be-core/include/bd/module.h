@@ -39,6 +39,7 @@ namespace bd{
         bool _childAdded;
         bool _eventBinded;
     };
+	
 }
 
 #endif

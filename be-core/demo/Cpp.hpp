@@ -2,9 +2,11 @@
 #define _TST_CPP_HPP_H_
 
 #include "bd/be-designer.h"
+#include "Entity.h"
 
-namespace bd{
-    class Cpp:public Module{
+using namespace bd;
+namespace tst{
+    class Cpp:public Module, public PersistenceAble{
     public:
         Cpp(){
             this->_inr = new Datafield(typeid(std::string));
@@ -18,6 +20,8 @@ namespace bd{
                 delete this->_remark;
             if (this->_number)
                 delete this->_number;
+			if (this->_entity)
+				delete this->_entity;
         }
     public:
         virtual void addChild(){
@@ -30,6 +34,12 @@ namespace bd{
         }
 		virtual void bindRules(Context *context) {
 
+		}
+		virtual Entity* createObject() {
+			CppEntity *entity = new CppEntity();
+			entity->inr = ModuleUtils::getValue(*this->_inr);
+			entity->remark = ModuleUtils::getValue(*this->_remark);
+			return entity;
 		}
     public:
         void set_Inr(const std::string & value){
@@ -51,10 +61,12 @@ namespace bd{
 		Datafield* get_Number(){
             return this->_number;
         }
+		
     protected:
         Datafield* _inr;
         Datafield* _remark;
         Datafield* _number;
+		CppEntity* _entity;
     };
 }
 #endif

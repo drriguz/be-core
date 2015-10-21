@@ -4,13 +4,15 @@
 #include "bd/be-designer.h"
 #include <iostream>
 
-namespace bd {
+namespace tst {
 	class Cppgrp;
 	class Cpptst;
 	class Cpp;
 }
 
-namespace bd{
+using namespace bd;
+
+namespace tst {
     class Cppgrp_Init_1000 :public Rule{
     public:
 		Cppgrp_Init_1000(Cppgrp* parent);

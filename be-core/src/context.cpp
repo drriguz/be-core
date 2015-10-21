@@ -11,6 +11,7 @@ Context::Context(){
 	this->_session = new Session(this);
 	this->_auth = new Auth();
 	this->_presentation = new Presentation();
+	this->_persistence = new Persistence();
 }
 
 Context::~Context(){
@@ -20,6 +21,8 @@ Context::~Context(){
 		delete this->_auth;
 	if (this->_presentation)
 		delete this->_presentation;
+	if (this->_persistence)
+		delete this->_persistence;
 }
 
 Auth* Context::getAuth(){

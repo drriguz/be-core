@@ -6,8 +6,9 @@
 #include "Events.h"
 
 #include <iostream>
+using namespace bd;
 
-namespace bd{
+namespace tst {
     class Cppgrp :public Module{
     public:
         Cppgrp(){

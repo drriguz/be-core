@@ -4,8 +4,9 @@
 #include "bd/be-designer.h"
 #include "Cppgrp.hpp"
 #include "Events.h"
+using namespace bd;
 
-namespace bd{
+namespace tst {
     class Cpptst :public Transaction{
     public:
         Cpptst(){
