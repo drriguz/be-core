@@ -14,6 +14,7 @@ namespace bd{
     class Context;
 	class Event;
 	class Datafield;
+	class EventAble;
 }
 
 namespace bd{
@@ -22,7 +23,7 @@ namespace bd{
         static void sort(std::list<Rule*> &list);
         static void sort(std::list<EventRule*> &list);
         static bool invokeInitRule(Module *root, Context &context);
-		static bool invokeEventRule(Datafield *field, Context *context, Event eventType);
+		static bool invokeEventRule(EventAble *field, Context *context, Event eventType);
     };
 
 	class ModuleUtils {

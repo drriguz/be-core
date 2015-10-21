@@ -1,6 +1,6 @@
 #include "utils.h"
-#include "Rule.h"
-#include "EventRule.h"
+#include "rule.h"
+#include "eventRule.h"
 #include "module.h"
 #include "datafield.h"
 #include "event.h"
@@ -36,7 +36,7 @@ bool RuleUtils::invokeInitRule(Module* root, Context &context){
 	}
 	return true;
 }
-bool RuleUtils::invokeEventRule(Datafield *field, Context *context, Event eventType) {
+bool RuleUtils::invokeEventRule(EventAble *field, Context *context, Event eventType) {
 	if (!field)
 		return false;
 	if (!context)

@@ -5,9 +5,10 @@
 #include <vector>
 
 #include "module.h"
+#include "eventRule.h"
 
 namespace bd{
-    class ModuleList:public Module{
+    class ModuleList:public Module, public EventAble{
 	public:
 		ModuleList();
 		ModuleList(const ModuleList &t);
@@ -20,6 +21,7 @@ namespace bd{
         virtual bool remove(int index);
 		virtual Module* get(int i);
 		virtual void clear();
+		virtual bool invokeEventRules(Context &context, Event eventType);
 	protected:
 		std::vector<Module*> _list;
 		int _pageSize;

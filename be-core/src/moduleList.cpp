@@ -1,4 +1,5 @@
 #include "moduleList.h"
+#include "utils.h"
 using namespace bd;
 
 ModuleList::ModuleList() {
@@ -56,4 +57,10 @@ void ModuleList::clear() {
 			delete this->_list[i];
 	}
 	this->_list.clear();
+}
+
+bool ModuleList::invokeEventRules(Context &context, Event eventType) {
+	if (!this->_ruleSorted)
+		this->sortRules();
+	return RuleUtils::invokeEventRule(this, &context, eventType);
 }
