@@ -3,7 +3,7 @@
 
 using namespace bd;
 
-Event::Event(){
+Event::Event(EventType type):_eventType(type){
 
 }
 Event::~Event(){

@@ -31,7 +31,8 @@ bool RuleUtils::invokeInitRule(Module* root, Context &context){
 	std::list<Rule*>::iterator it;
 	for (it = rules.begin(); it != rules.end(); it++) {
 		Rule* r = *it;
-		r->invoke(context);
+		if (!r->invoke(context))
+			break;
 	}
 	return true;
 }
@@ -42,9 +43,12 @@ bool RuleUtils::invokeEventRule(Datafield *field, Context *context, Event eventT
 		return false;
 	std::list<EventRule*> *rules = field->getEventRules();
 	std::list<EventRule*>::iterator it;
-	for (it = rules->begin(); it != rules->end(); it++) {
+	for (it = rules->begin(); it != rules->end(); it++) {		
 		EventRule* r = *it;
-		r->invoke(*context, eventType);
+		if (eventType.getEventType() == r->getEventType()) {
+			if (!r->invoke(*context, eventType))
+				break;
+		}
 	}
 	return true;
 }

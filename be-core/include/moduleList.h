@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "Module.h"
+#include "module.h"
 
 namespace bd{
     class ModuleList:public Module{

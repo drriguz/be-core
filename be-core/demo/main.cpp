@@ -23,7 +23,8 @@ int main(int argc, char* argv[]){
 		cout << "Failed to get cppgrp/btn" << endl;
 		return -1;
 	}
-	Event e;	
+	Event e(EventType::ON_CLICK);	
+	
 	for (int i = 0; i < 10; i++)
 		session->invokeEventRule(*btn, e);
 

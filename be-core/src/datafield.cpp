@@ -9,7 +9,7 @@
 using namespace bd;
 
 Datafield::Datafield():_typeName(typeid(std::string).name()){
-    this->_ruleSorted = false;
+    
 	
 }
 
@@ -21,26 +21,6 @@ Datafield::Datafield(const type_info& type):_typeName(type.name()){
 Datafield::~Datafield(){
     if (this->_value)
         delete this->_value;
-}
-
-void Datafield::addEventRule(EventRule *rule){
-    this->_eventRuleList.push_back(rule);
-    this->_ruleSorted = false;
-}
-
-void Datafield::sortRules(){
-    RuleUtils::sort(this->_eventRuleList);
-    RuleUtils::sort(this->_ruleList);
-    this->_ruleSorted = true;
-}
-
-bool Datafield::invokeEventRules(Context &context, Event eventType){
-    if (!this->_ruleSorted)
-        this->sortRules();
-	return RuleUtils::invokeEventRule(this, &context, eventType);
-}
-std::list<EventRule*>* Datafield::getEventRules() {
-	return &this->_eventRuleList;
 }
 
 void Datafield::setValue(const std::string &value){
@@ -67,4 +47,10 @@ void Datafield::clear(){
 
 ObjectType Datafield::getType(){
     return ObjectType::DATAFIELD;
+}
+
+bool Datafield::invokeEventRules(Context &context, Event eventType) {
+	if (!this->_ruleSorted)
+		this->sortRules();
+	return RuleUtils::invokeEventRule(this, &context, eventType);
 }

@@ -7,24 +7,22 @@
 #include <typeinfo>
 
 #include "object.h"
+#include "eventRule.h"
 
 namespace bd{
     class Context;
     class Rule;
-    class EventRule;
 	enum EventType;
 	class Event;
 }
 
 namespace bd{
-    class Datafield:public Object{
+    class Datafield:public Object, public EventAble{
     public:
         Datafield();
         Datafield(const type_info& type);
         ~Datafield();
     public:
-        void addEventRule(EventRule *rule);        
-        virtual bool invokeEventRules(Context &context, Event eventType);
         virtual boost::any* getValue() const;        
         virtual void setValue(const std::string &value);
 
@@ -33,18 +31,12 @@ namespace bd{
             if (this->_value)
                 delete this->_value;
             this->_value = new boost::any(value);
-        }
-        
+        }        
         virtual std::string toString() const;
         virtual void clear();
         virtual ObjectType getType();
-		virtual std::list<EventRule*>* getEventRules();
-    protected:
-        void sortRules();
-    protected:
-        std::list<Rule*> _ruleList;
-        std::list<EventRule*> _eventRuleList;
-        bool _ruleSorted;
+		virtual bool invokeEventRules(Context &context, Event eventType);
+	protected:
         boost::any* _value;
         std::string _typeName;
     };

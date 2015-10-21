@@ -23,7 +23,7 @@ namespace bd{
     
     class Event{
     public:
-        Event();
+        Event(EventType type);
         ~Event();
     public:
         Attribute* getTarget() const;
