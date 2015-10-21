@@ -1,12 +1,12 @@
 #ifndef _BE_DESIGNER_MODULE_SESSION_H_
 #define _BE_DESIGNER_MODULE_SESSION_H_
 
-#include "Context.h"
-
 #include <string>
 #include <list>
 #include <stack>
 #include <map>
+
+#include "context.h"
 
 namespace bd{
     class Module;
@@ -15,10 +15,10 @@ namespace bd{
     class Transaction;
     class Event;
 }
-namespace bd{
+namespace bd{	
     class Session{
     public:
-        Session(Context &contex);
+        Session(Context *contex);
         ~Session();
     public:
         virtual bool isDirectCall();

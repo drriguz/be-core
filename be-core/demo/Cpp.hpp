@@ -1,7 +1,7 @@
 #ifndef _TST_CPP_HPP_H_
 #define _TST_CPP_HPP_H_
 
-#include "be-designer.h"
+#include "bd/be-designer.h"
 
 namespace bd{
     class Cpp:public Module{

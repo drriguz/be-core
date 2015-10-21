@@ -1,7 +1,7 @@
-#include "module.h"
-#include "eventRule.h"
-#include "datafield.h"
-#include "rule.h"
+#include "bd/module.h"
+#include "bd/eventRule.h"
+#include "bd/datafield.h"
+#include "bd/rule.h"
 
 using namespace bd;
 

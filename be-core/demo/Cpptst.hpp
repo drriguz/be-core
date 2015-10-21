@@ -1,7 +1,7 @@
 #ifndef _TST_CPPTST_HPP_
 #define _TST_CPPTST_HPP_
 
-#include "be-designer.h"
+#include "bd/be-designer.h"
 #include "Cppgrp.hpp"
 #include "Events.h"
 

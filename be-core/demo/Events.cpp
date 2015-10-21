@@ -1,6 +1,6 @@
 #include "Events.h"
 #include "project.h"
-#include "attribute.h"
+#include "bd/attribute.h"
 using namespace bd;
 
 Cppgrp_Init_1000::Cppgrp_Init_1000(Cppgrp* parent) :Rule((Module*)parent) {

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <boost/any.hpp>
 
-#include "be-designer.h"
+#include "bd/be-designer.h"
 #include "project.h"
 
 using namespace std;

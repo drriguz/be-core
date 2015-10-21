@@ -71,70 +71,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\attribute.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\datafield.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\event.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\be-designer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\client.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\clientManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\moduleList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\panel.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="demo\Cpp.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo\Entity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\context.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\auth.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\eventRule.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\presentation.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\rule.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\object.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\session.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\transaction.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\persistence.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\register.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo\Cpptst.hpp">
@@ -147,6 +87,66 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo\Events.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\attribute.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\auth.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\be-designer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\client.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\clientManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\context.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\datafield.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\eventRule.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\module.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\moduleList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\object.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\panel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\persistence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\presentation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\rule.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\session.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\transaction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

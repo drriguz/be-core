@@ -1,5 +1,5 @@
-#include "event.h"
-#include "attribute.h"
+#include "bd/event.h"
+#include "bd/attribute.h"
 
 using namespace bd;
 

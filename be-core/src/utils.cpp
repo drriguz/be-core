@@ -1,9 +1,9 @@
-#include "utils.h"
-#include "rule.h"
-#include "eventRule.h"
-#include "module.h"
-#include "datafield.h"
-#include "event.h"
+#include "bd/utils.h"
+#include "bd/rule.h"
+#include "bd/eventRule.h"
+#include "bd/module.h"
+#include "bd/datafield.h"
+#include "bd/event.h"
 
 #include <boost\format.hpp>
 #include <boost\tokenizer.hpp>

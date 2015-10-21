@@ -1,9 +1,9 @@
-#include "datafield.h"
-#include "utils.h"
-#include "object.h"
-#include "context.h"
-#include "rule.h"
-#include "eventRule.h"
+#include "bd/datafield.h"
+#include "bd/utils.h"
+#include "bd/object.h"
+#include "bd/context.h"
+#include "bd/rule.h"
+#include "bd/eventRule.h"
 
 #include <boost\lexical_cast\lexical_cast_old.hpp>
 using namespace bd;

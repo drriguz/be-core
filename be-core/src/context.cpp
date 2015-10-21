@@ -1,14 +1,14 @@
-#include "context.h"
-#include "auth.h"
-#include "persistence.h"
-#include "module.h"
-#include "session.h"
-#include "presentation.h"
+#include "bd/context.h"
+#include "bd/auth.h"
+#include "bd/persistence.h"
+#include "bd/module.h"
+#include "bd/session.h"
+#include "bd/presentation.h"
 
 using namespace bd;
 
 Context::Context(){
-	this->_session = new Session(*this);
+	this->_session = new Session(this);
 	this->_auth = new Auth();
 	this->_presentation = new Presentation();
 }

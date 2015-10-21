@@ -37,26 +37,26 @@
     <ClInclude Include="demo\Cpptst.hpp" />
     <ClInclude Include="demo\Entity.h" />
     <ClInclude Include="demo\project.h" />
-    <ClInclude Include="include\auth.h" />
-    <ClInclude Include="include\context.h" />
-    <ClInclude Include="include\eventRule.h" />
-    <ClInclude Include="include\register.h" />
-    <ClInclude Include="include\session.h" />
-    <ClInclude Include="include\persistence.h" />
-    <ClInclude Include="include\presentation.h" />
-    <ClInclude Include="include\rule.h" />
-    <ClInclude Include="include\attribute.h" />
-    <ClInclude Include="include\object.h" />
-    <ClInclude Include="include\be-designer.h" />
-    <ClInclude Include="include\client.h" />
-    <ClInclude Include="include\clientManager.h" />
-    <ClInclude Include="include\datafield.h" />
-    <ClInclude Include="include\event.h" />
-    <ClInclude Include="include\module.h" />
-    <ClInclude Include="include\moduleList.h" />
-    <ClInclude Include="include\panel.h" />
-    <ClInclude Include="include\utils.h" />
-    <ClInclude Include="include\transaction.h" />
+    <ClInclude Include="include\bd\auth.h" />
+    <ClInclude Include="include\bd\context.h" />
+    <ClInclude Include="include\bd\eventRule.h" />
+    <ClInclude Include="include\bd\register.h" />
+    <ClInclude Include="include\bd\session.h" />
+    <ClInclude Include="include\bd\persistence.h" />
+    <ClInclude Include="include\bd\presentation.h" />
+    <ClInclude Include="include\bd\rule.h" />
+    <ClInclude Include="include\bd\attribute.h" />
+    <ClInclude Include="include\bd\object.h" />
+    <ClInclude Include="include\bd\be-designer.h" />
+    <ClInclude Include="include\bd\client.h" />
+    <ClInclude Include="include\bd\clientManager.h" />
+    <ClInclude Include="include\bd\datafield.h" />
+    <ClInclude Include="include\bd\event.h" />
+    <ClInclude Include="include\bd\module.h" />
+    <ClInclude Include="include\bd\moduleList.h" />
+    <ClInclude Include="include\bd\panel.h" />
+    <ClInclude Include="include\bd\utils.h" />
+    <ClInclude Include="include\bd\transaction.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9AC06881-4F8B-4F4D-9887-A55520A6EEB9}</ProjectGuid>
@@ -101,12 +101,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Boost\include\boost-1_59;$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_DIR)\include\boost-1_59;$(SOCI_DIR)\include;$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Boost\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST_DIR)\lib;$(SOCI_DIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

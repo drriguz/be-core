@@ -1,5 +1,5 @@
-#include "rule.h"
-#include "module.h"
+#include "bd/rule.h"
+#include "bd/module.h"
 using namespace bd;
 
 Rule::Rule(Module* parent):_parent(parent){

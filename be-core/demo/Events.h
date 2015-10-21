@@ -1,7 +1,7 @@
 #ifndef _TST_EVENTS_H_
 #define _TST_EVENTS_H_
 
-#include "be-designer.h"
+#include "bd/be-designer.h"
 #include <iostream>
 
 namespace bd {

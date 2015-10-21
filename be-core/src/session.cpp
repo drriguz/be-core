@@ -1,23 +1,26 @@
-#include "session.h"
-#include "register.h"
-#include "datafield.h"
-#include "transaction.h"
-#include "utils.h"
-#include "event.h"
+#include "bd/session.h"
+#include "bd/register.h"
+#include "bd/datafield.h"
+#include "bd/transaction.h"
+#include "bd/utils.h"
+#include "bd/event.h"
 #include <boost\any.hpp>
 
 
 using namespace bd;
 
-Session::Session(Context &contex):_isDirectCall(true),_context(&contex){
-    //this->_context = new Context();
+Session::Session(Context *contex):_isDirectCall(true),_context(contex){   
 }
 
 Session::~Session(){
     if (this->_transaction)
         delete this->_transaction;
-    //if (this->_context)
-    //    delete this->_context;
+	std::map<std::string, Module*>::iterator it;
+	for (it = this->_staticModules.begin(); it != this->_staticModules.end(); it++) {
+		Module* m = it->second;
+		if (m)
+			delete m;
+	}
 }
 
 bool Session::isDirectCall(){

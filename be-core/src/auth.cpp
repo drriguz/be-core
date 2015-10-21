@@ -1,5 +1,5 @@
-#include "Auth.h"
-#include<ctime> 
+#include "bd/Auth.h"
+#include <ctime> 
 using namespace bd;
 
 Auth::Auth():_authed(false),_user(""),_loginTime(-1){

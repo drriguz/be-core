@@ -1,7 +1,7 @@
 #ifndef _TST_CPPGRP_H_
 #define _TST_CPPGRP_H_
 
-#include "be-designer.h"
+#include "bd/be-designer.h"
 #include "Cpp.hpp"
 #include "Events.h"
 
