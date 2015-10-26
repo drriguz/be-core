@@ -10,7 +10,10 @@ Persistence::Persistence(){
 
 }
 Persistence::~Persistence(){
-
+	if (this->_session)
+		delete this->_session;
+	if (this->_transaction)
+		delete this->_transaction;
 }
 bool Persistence::init() {
     return true;
@@ -20,9 +23,24 @@ bool Persistence::invoke(void* callback){
     return true;
 }
 bool Persistence::begin(){
+	if (this->_session)
+		delete this->_session;
+	if (this->_transaction)
+		delete this->_transaction;
+	this->_session = new soci::session(backEnd, connectString);
+	this->_transaction = new soci::transaction(*this->_session);
+	//this->_session->begin();
     return true;
 };
 bool Persistence::commit(){
+	if (this->_transaction) {
+		this->_transaction->commit();
+		delete this->_transaction;
+		if (this->_session)
+			delete this->_session;
+		this->_session = NULL;
+		this->_transaction = NULL;
+	}
     return true;
 };
 bool Persistence::rollback(){
@@ -38,11 +56,13 @@ bool Persistence::unlock(const char* key) {
     return true;
 };
 bool Persistence::save(PersistenceAble *module) {
+	if (!this->_session)
+		return false;
 	PersistenceAble*p = (PersistenceAble*)module;
 	Entity* e = p->createObject();
 	{
-		soci::session soci_session(backEnd, connectString);
-		e->save(soci_session);
+		//soci::session soci_session(backEnd, connectString);
+		e->save(*this->_session);
 	}
 	delete e;
     return true;

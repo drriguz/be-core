@@ -44,6 +44,9 @@ namespace bd{
         virtual bool execute(const char *sql, void* params, ...);
         virtual bool fetch();
         virtual bool close();
+	protected:
+		soci::session* _session;
+		soci::transaction* _transaction;
     };
 }
 
