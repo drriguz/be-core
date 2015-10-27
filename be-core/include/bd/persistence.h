@@ -3,7 +3,11 @@
 
 #include <string>
 #include <soci.h>
-#include "module.h"
+
+namespace bd {
+	class Module;
+	class ModuleList;
+}
 
 namespace bd{
 	class Entity {
@@ -13,14 +17,9 @@ namespace bd{
 
 	class PersistenceAble {
 	public:
-		PersistenceAble() {
-
-		}
-		~PersistenceAble() {
-
-		}
-	public:
 		virtual Entity* createObject() = 0;
+		virtual bool fromObject(Entity* entity) = 0;
+		virtual Entity* read(soci::session &sql, const std::string &whereClause)=0;
 	};
 
     class Persistence{
@@ -44,6 +43,8 @@ namespace bd{
         virtual bool execute(const char *sql, void* params, ...);
         virtual bool fetch();
         virtual bool close();
+		virtual bool read(PersistenceAble* module, const std::string& whereClause);
+		virtual bool readSet(ModuleList* list, const std::string& whereClause);
 	protected:
 		soci::session* _session;
 		soci::transaction* _transaction;

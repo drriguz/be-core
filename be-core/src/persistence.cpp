@@ -1,4 +1,6 @@
 #include "bd/persistence.h"
+#include "bd/module.h"
+#include "bd/moduleList.h"
 #include <soci.h>
 #include <backends/sqlite3/soci-sqlite3.h>
 using namespace bd;
@@ -88,3 +90,15 @@ bool Persistence::fetch() {
 bool Persistence::close() {
     return true;
 };
+
+bool Persistence::read(PersistenceAble* module, const std::string& whereClause) {
+	soci::session sql(backEnd, connectString);
+	PersistenceAble *p = (PersistenceAble*)module;
+	Entity* e = p->read(sql, whereClause);
+	p->fromObject(e);
+	delete e;
+	return true;
+}
+bool Persistence::readSet(ModuleList* list, const std::string& whereClause) {
+	return true;
+}

@@ -29,7 +29,10 @@ bool Cppgrp_btn_event_100::invoke(Context &context, Event eventType) {
 
 	((Cppgrp*)this->_parent)->getCpp()->set_Inr("XXXXXXXX");
 	((Cppgrp*)this->_parent)->getCpp()->set_Remark("Hello Soci:ÄãºÃ");
-	context.getPersistence()->save(((Cppgrp*)this->_parent)->getCpp());
+	context.getPersistence()->begin();
+	context.getPersistence()->save(((Cppgrp*)this->_parent)->getCpp());	
+	context.getPersistence()->commit();
+	std::cout << "saved!" << std::endl;
 	return true;
 }
 //

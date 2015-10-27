@@ -22,9 +22,12 @@ int testSoci() {
 		std::string name;
 		sql <<"select inr from tst", soci::into(name);
 		cout << name << endl;
-		sql << "insert into cpp(inr, remark) values(:INR, :REMARK)"
+		/*sql << "insert into cpp(inr, remark) values(:INR, :REMARK)"
 			, soci::use(std::string("XXXXXXXX"))
 			, soci::use(std::string("Hello Soci:ÄãºÃ"));
+			*/
+		CppEntity entity;
+		sql << "select * from cpp", soci::into(entity);
 	}
 
 	return 1;
@@ -34,7 +37,7 @@ int testSoci() {
 int main(int argc, char* argv[]){
 #ifdef _TST_SOCI
 	testSoci();
-#else
+#elif defined _TST_EVENT
 	bd::Context context;
 	Session* session = context.getSession();
 	// test chain transaction
@@ -71,10 +74,15 @@ int main(int argc, char* argv[]){
 	for (it = modified.begin(); it != modified.end(); it++) {
 		cout << (string)(it->first) << endl;;
 	}
-#endif
-	
+#else	
 	cout << "Done!" << endl;
+	bd::Context context;
+	Session* session = context.getSession();
+	Cpp cpp;
+	context.getPersistence()->read((PersistenceAble*)&cpp, "");
+	cout << cpp.get_Inr() << " " << cpp.get_Remark() << endl;
 	system("pause");
 	return 0;
+#endif
 }
 

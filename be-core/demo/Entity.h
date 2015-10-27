@@ -18,6 +18,11 @@ namespace tst {
 				, soci::use(remark);
 			return true;
 		}
+
+		bool read(soci::session &sql, const std::string &whereClause) {
+			sql << "select * from cpp " + whereClause, soci::into(*this);
+			return true;
+		}
     };
 }
 
@@ -26,13 +31,13 @@ namespace soci {
 		typedef values base_type;
 
 		static void from_base(values const &v, indicator /* ind */, tst::CppEntity &b) {
-			b.inr = v.get<std::string>("INR");
-			b.remark = v.get<std::string>("REMARK");
+			b.inr = v.get<std::string>("inr");
+			b.remark = v.get<std::string>("remark");
 		}
 
 		static void to_base(tst::CppEntity const & b, values & v, indicator & ind) {
-			v.set("INR", b.inr);
-			v.set("REMARK", b.remark);			
+			v.set("inr", b.inr);
+			v.set("remark", b.remark);			
 			ind = i_ok;
 		}
 	};

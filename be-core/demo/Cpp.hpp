@@ -41,6 +41,17 @@ namespace tst{
 			entity->remark = ModuleUtils::getValue(*this->_remark);
 			return entity;
 		}
+		virtual bool fromObject(Entity* entity) {
+			CppEntity *cppEntity = (CppEntity*)entity;			
+			this->set_Inr(cppEntity->inr);
+			this->set_Remark(cppEntity->remark);
+			return true;
+		}
+		virtual Entity* read(soci::session &sql, const std::string &whereClause) {
+			CppEntity *entity = new CppEntity();
+			entity->read(sql, whereClause);
+			return entity;
+		}
     public:
         void set_Inr(const std::string & value){
             this->_inr->setValue(value);
