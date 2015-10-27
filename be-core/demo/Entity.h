@@ -3,6 +3,8 @@
 
 #include <string>
 #include <soci.h>
+#include <vector>
+
 #include "bd/be-designer.h"
 using namespace bd;
 
@@ -12,16 +14,30 @@ namespace tst {
         std::string inr;
         std::string remark;
 	public:
-		bool save(soci::session &sql) {
+		virtual bool save(soci::session &sql) {
 			sql << "insert into cpp(inr, remark) values(:INR, :REMARK)"
 				, soci::use(inr)
 				, soci::use(remark);
 			return true;
 		}
 
-		bool read(soci::session &sql, const std::string &whereClause) {
+		virtual bool read(soci::session &sql, const std::string &whereClause) {
 			sql << "select * from cpp " + whereClause, soci::into(*this);
 			return true;
+		}
+
+		virtual std::vector<Entity*>* readSet(soci::session &sql, const std::string &whereClause) {
+			std::vector<std::string> vInr(1000);
+			std::vector<std::string> vRemark(1000);
+			sql << "select inr,remark from cpp " + whereClause, soci::into(vInr), soci::into(vRemark);
+			std::vector<Entity*> *list = new std::vector<Entity*>(vInr.size());
+			for (int i = 0; i < vInr.size(); i++) {
+				CppEntity* item = new CppEntity();
+				item->inr = vInr.at(i);
+				item->remark = vInr.at(i);
+				list->push_back(item);				
+			}
+			return list;
 		}
     };
 }

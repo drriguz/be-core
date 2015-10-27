@@ -47,11 +47,12 @@ namespace tst{
 			this->set_Remark(cppEntity->remark);
 			return true;
 		}
+		
 		virtual Entity* read(soci::session &sql, const std::string &whereClause) {
 			CppEntity *entity = new CppEntity();
 			entity->read(sql, whereClause);
 			return entity;
-		}
+		}				
     public:
         void set_Inr(const std::string & value){
             this->_inr->setValue(value);

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <soci.h>
+#include <vector>
 
 namespace bd {
 	class Module;
@@ -13,13 +14,15 @@ namespace bd{
 	class Entity {
 	public:
 		virtual bool save(soci::session &sql) = 0;
+		virtual std::vector<Entity*>* readSet(soci::session &sql, const std::string &whereClause) = 0;
+		virtual bool read(soci::session &sql, const std::string &whereClause) = 0;
 	};
 
 	class PersistenceAble {
 	public:
 		virtual Entity* createObject() = 0;
 		virtual bool fromObject(Entity* entity) = 0;
-		virtual Entity* read(soci::session &sql, const std::string &whereClause)=0;
+		virtual Entity* read(soci::session &sql, const std::string &whereClause) = 0;
 	};
 
     class Persistence{

@@ -26,8 +26,10 @@ int testSoci() {
 			, soci::use(std::string("XXXXXXXX"))
 			, soci::use(std::string("Hello Soci:ÄãºÃ"));
 			*/
+		std::vector<std::string> list(100);
 		CppEntity entity;
-		sql << "select * from cpp", soci::into(entity);
+		sql << "select inr from cpp", soci::into(list);
+		cout << list.size() << endl;
 	}
 
 	return 1;
@@ -79,8 +81,8 @@ int main(int argc, char* argv[]){
 	bd::Context context;
 	Session* session = context.getSession();
 	Cpp cpp;
-	context.getPersistence()->read((PersistenceAble*)&cpp, "");
-	cout << cpp.get_Inr() << " " << cpp.get_Remark() << endl;
+	context.getPersistence()->read((PersistenceAble*)&cpp, "where inr='11'");
+	cout << ModuleUtils::getValue(*cpp.get_Inr()) << " " << ModuleUtils::getValue(*cpp.get_Remark()) << endl;
 	system("pause");
 	return 0;
 #endif
