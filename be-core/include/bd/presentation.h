@@ -1,7 +1,8 @@
 #ifndef _BE_DESIGNER_PRESENTATION_H_
 #define _BE_DESIGNER_PRESENTATION_H_
 
-#include <list>
+#include <map>
+#include <string>
 
 namespace bd{
 	class Object;
@@ -12,11 +13,11 @@ namespace bd{
 		Presentation();
 		~Presentation();
     public:
-		virtual void setModified(Attribute *item);
-		virtual std::list<Attribute*> getModifiedList();
+		virtual void setModified(const std::string &url, Attribute *item);
+		virtual std::map<std::string, Attribute*> getModifiedList();
 		virtual void clear();
 	protected:
-		std::list<Attribute*> _modifiedList;
+		std::map<std::string, Attribute*> _modifiedMap;
     };
 }
 

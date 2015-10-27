@@ -65,6 +65,12 @@ int main(int argc, char* argv[]){
 	Datafield* n = (Datafield*)m->getObject("number");
 	n->setValue(8087);
 	cout << n->toString() << endl;
+
+	std::map<std::string, Attribute*> modified = context.getPresentation()->getModifiedList();
+	std::map<std::string, Attribute*>::iterator it;
+	for (it = modified.begin(); it != modified.end(); it++) {
+		cout << (string)(it->first) << endl;;
+	}
 #endif
 	
 	cout << "Done!" << endl;

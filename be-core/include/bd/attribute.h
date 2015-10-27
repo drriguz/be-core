@@ -8,6 +8,7 @@
 #define ATTR_DISABLED  "DISABLED"
 #define ATTR_READONLY  "READONLY"
 #define ATTR_INVISIBLE "INVISIBLE"
+#define ATTR_URL       "URL"
 
 namespace bd{
     class Attribute{

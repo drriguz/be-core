@@ -10,13 +10,14 @@ Presentation::~Presentation() {
 
 }
 
-void Presentation::setModified(Attribute *item) {
+void Presentation::setModified(const std::string &url, Attribute *item) {
 	item->setAttribute(ATTR_MODIFIED, "true");
-	this->_modifiedList.push_back(item);
+	item->setAttribute(ATTR_URL, url);
+	this->_modifiedMap[url] = item;
 }
-std::list<Attribute*> Presentation::getModifiedList() {
-	return this->_modifiedList;
+std::map<std::string, Attribute*> Presentation::getModifiedList() {
+	return this->_modifiedMap;
 }
 void Presentation::clear() {
-	this->_modifiedList.clear();
+	this->_modifiedMap.clear();
 }

@@ -25,7 +25,7 @@ bool Cppgrp_btn_event_100::invoke(Context &context, Event eventType) {
 	std::cout << "Cppgrp/btn/onClick/100 invoked!" << std::endl;
 	((Cppgrp*)this->_parent)->set_Tmp(ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp()) + 1);
 	((Cppgrp*)this->_parent)->getCpp()->set_Number(ModuleUtils::getIntValue(*((Cppgrp*)this->_parent)->get_Tmp()));
-	context.getPresentation()->setModified((Attribute*)((Cppgrp*)this->_parent)->get_Tmp());
+	context.getPresentation()->setModified("cppgrp/cpp/number", (Attribute*)((Cppgrp*)this->_parent)->getCpp()->get_Number());
 
 	((Cppgrp*)this->_parent)->getCpp()->set_Inr("XXXXXXXX");
 	((Cppgrp*)this->_parent)->getCpp()->set_Remark("Hello Soci:ÄãºÃ");
