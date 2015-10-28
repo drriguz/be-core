@@ -23,6 +23,12 @@ namespace bd{
 		virtual Entity* createObject() = 0;
 		virtual bool fromObject(Entity* entity) = 0;
 		virtual Entity* read(soci::session &sql, const std::string &whereClause) = 0;
+		virtual std::vector<Entity*>* readSet(soci::session &sql, const std::string &whereClause) = 0;
+	};
+
+	class ReadSetAble {
+	public:
+		virtual bool readSet(soci::session &sql, const std::string &whereClause) = 0;
 	};
 
     class Persistence{
@@ -47,7 +53,7 @@ namespace bd{
         virtual bool fetch();
         virtual bool close();
 		virtual bool read(PersistenceAble* module, const std::string& whereClause);
-		virtual bool readSet(ModuleList* list, const std::string& whereClause);
+		virtual bool readSet(ReadSetAble* list, const std::string& whereClause);
 	protected:
 		soci::session* _session;
 		soci::transaction* _transaction;

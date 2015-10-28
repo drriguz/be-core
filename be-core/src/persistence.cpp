@@ -99,6 +99,8 @@ bool Persistence::read(PersistenceAble* module, const std::string& whereClause) 
 	delete e;
 	return true;
 }
-bool Persistence::readSet(ModuleList* list, const std::string& whereClause) {
+bool Persistence::readSet(ReadSetAble* list, const std::string& whereClause) {
+	soci::session sql(backEnd, connectString);
+	list->readSet(sql, whereClause);
 	return true;
 }

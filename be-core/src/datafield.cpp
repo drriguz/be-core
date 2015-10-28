@@ -12,7 +12,10 @@ Datafield::Datafield():_typeName(typeid(std::string).name()){
     
 	
 }
-
+Datafield::Datafield(const Datafield& field) {
+	this->_typeName = field._typeName;
+	this->_value = new boost::any(field._value);
+}
 Datafield::Datafield(const type_info& type):_typeName(type.name()){   
 	if (type == typeid(int))
 		this->setValue(0);

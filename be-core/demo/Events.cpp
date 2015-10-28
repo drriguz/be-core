@@ -11,6 +11,7 @@ Cppgrp_Init_1000::~Cppgrp_Init_1000() {
 }
 bool Cppgrp_Init_1000::invoke(Context &context) {
 	std::cout << "Cppgrp/Init/100 invoked!" << std::endl;
+	CppList *cpplst = ((Cppgrp*)this->_parent)->getCppList();
 	return true;
 }
 //

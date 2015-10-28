@@ -29,7 +29,7 @@ int ModuleList::getPageNumber() {
 	return this->_currentPage;
 }
 
-bool ModuleList::add(const Module &module) {
+bool ModuleList::add(Module &module) {
 	Module* m = new Module(module);
 	this->_list.push_back(m);
 	return true;
@@ -51,10 +51,16 @@ Module* ModuleList::get(int i) {
 	return this->_list[i];
 }
 
-void ModuleList::clear() {
+void ModuleList::clear() {	
 	for (int i = 0; i < this->_list.size(); i++) {
-		if (this->_list[i])
-			delete this->_list[i];
+		if (this->_list[i]) {
+			Module* m = this->_list[i];
+			if(m){
+				delete m;
+				m = NULL;
+			}
+			
+		}
 	}
 	this->_list.clear();
 }

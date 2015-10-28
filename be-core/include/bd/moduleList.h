@@ -17,11 +17,12 @@ namespace bd{
         virtual int size();
         virtual int getPageSize();
         virtual int getPageNumber();
-        virtual bool add(const Module &module);		
+        virtual bool add(Module &module);		
         virtual bool remove(int index);
 		virtual Module* get(int i);
 		virtual void clear();
 		virtual bool invokeEventRules(Context &context, Event eventType);
+		//virtual bool readSet(soci::session &sql, const std::string &whereClause);
 	protected:
 		std::vector<Module*> _list;
 		int _pageSize;

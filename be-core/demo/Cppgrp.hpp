@@ -3,6 +3,7 @@
 
 #include "bd/be-designer.h"
 #include "Cpp.hpp"
+#include "CppList.hpp"
 #include "Events.h"
 
 #include <iostream>
@@ -13,6 +14,7 @@ namespace tst {
     public:
         Cppgrp(){
             this->_cpp = new Cpp();
+			this->_cpplst = new CppList();
             this->_cppgrp_init_1000 = new Cppgrp_Init_1000(this);
             this->_cppgrp_btn_event_100 = new Cppgrp_btn_event_100(this);
 			this->_btn = new Datafield(typeid(std::string));
@@ -22,6 +24,8 @@ namespace tst {
         ~Cppgrp(){
             if (this->_cpp)
                 delete this->_cpp;
+			if (this->_cpplst)
+				delete this->_cpplst;
 			if (this->_btn)
 				delete this->_btn;
 			if (this->_tmp)
@@ -35,8 +39,9 @@ namespace tst {
         virtual void addChild(){
             if (!this->_childAdded){
                 this->_modules.insert(std::make_pair(std::string("cpp"), this->_cpp)); 
+				this->_modules.insert(std::make_pair(std::string("cpplst"), this->_cpplst));
 				this->_datafields.insert(std::make_pair(std::string("btn"), this->_btn));
-				this->_datafields.insert(std::make_pair(std::string("tmp"), this->_tmp));
+				this->_datafields.insert(std::make_pair(std::string("tmp"), this->_tmp));				
 				this->_cpp->addChild();
                 this->_childAdded = true;
             }
@@ -45,13 +50,17 @@ namespace tst {
             if (!this->_eventBinded){
 				context->getRootModule()->addInitRule(this->_cppgrp_init_1000);                
 				this->_btn->addEventRule(_cppgrp_btn_event_100);                
-				this->_cpp->bindRules(context);				
+				this->_cpp->bindRules(context);	
+				this->_cpplst->bindRules(context);
                 this->_eventBinded = true;
             }
         }
         Cpp* getCpp(){
             return this->_cpp;
         }
+		CppList* getCppList() {
+			return this->_cpplst;
+		}
 		void set_Btn(const std::string &value) {
 			this->_btn->setValue(value);
 		}
@@ -66,6 +75,7 @@ namespace tst {
 		}
     protected:
         Cpp* _cpp;
+		CppList* _cpplst;
 		Datafield* _btn;
 		Datafield* _tmp;
         Cppgrp_Init_1000* _cppgrp_init_1000;

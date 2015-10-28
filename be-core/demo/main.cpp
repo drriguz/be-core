@@ -83,6 +83,12 @@ int main(int argc, char* argv[]){
 	Cpp cpp;
 	context.getPersistence()->read((PersistenceAble*)&cpp, "where inr='11'");
 	cout << ModuleUtils::getValue(*cpp.get_Inr()) << " " << ModuleUtils::getValue(*cpp.get_Remark()) << endl;
+	//
+	CppList list;
+	list.add(cpp);
+	list.clear();
+	context.getPersistence()->readSet(&list, "where inr in('11', '222')");
+	cout << list.size() << endl;
 	system("pause");
 	return 0;
 #endif

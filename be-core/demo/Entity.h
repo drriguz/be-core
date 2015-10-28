@@ -30,7 +30,7 @@ namespace tst {
 			std::vector<std::string> vInr(1000);
 			std::vector<std::string> vRemark(1000);
 			sql << "select inr,remark from cpp " + whereClause, soci::into(vInr), soci::into(vRemark);
-			std::vector<Entity*> *list = new std::vector<Entity*>(vInr.size());
+			std::vector<Entity*> *list = new std::vector<Entity*>();
 			for (int i = 0; i < vInr.size(); i++) {
 				CppEntity* item = new CppEntity();
 				item->inr = vInr.at(i);

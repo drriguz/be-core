@@ -20,6 +20,7 @@ namespace bd{
     class Datafield:public Object, public EventAble{
     public:
         Datafield();
+		Datafield(const Datafield& field);
         Datafield(const type_info& type);
         ~Datafield();
     public:

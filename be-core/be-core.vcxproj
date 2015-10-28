@@ -33,6 +33,7 @@
   <ItemGroup>
     <ClInclude Include="demo\Cpp.hpp" />
     <ClInclude Include="demo\Cppgrp.hpp" />
+    <ClInclude Include="demo\CppList.hpp" />
     <ClInclude Include="demo\Events.h" />
     <ClInclude Include="demo\Cpptst.hpp" />
     <ClInclude Include="demo\Entity.h" />

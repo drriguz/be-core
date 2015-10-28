@@ -13,6 +13,11 @@ namespace tst{
             this->_remark = new Datafield(typeid(std::string));
             this->_number = new Datafield(typeid(int));            
         }
+		Cpp(const Cpp& cpp) {
+			this->_inr = new Datafield(*cpp._inr);
+			this->_remark = new Datafield(*cpp._remark);
+			this->_number = new Datafield(*cpp._number);
+		}
         ~Cpp(){
             if (this->_inr)
                 delete this->_inr;
@@ -52,7 +57,12 @@ namespace tst{
 			CppEntity *entity = new CppEntity();
 			entity->read(sql, whereClause);
 			return entity;
-		}				
+		}
+
+		virtual std::vector<Entity*>* readSet(soci::session &sql, const std::string &whereClause) {
+			CppEntity entity;
+			return entity.readSet(sql, whereClause);
+		}
     public:
         void set_Inr(const std::string & value){
             this->_inr->setValue(value);
