@@ -20,5 +20,6 @@
 #include "transaction.h"
 #include "register.h"
 #include "utils.h"
+#include "logger.hpp"
 
 #endif

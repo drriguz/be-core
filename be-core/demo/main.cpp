@@ -10,7 +10,6 @@
 
 using namespace std;
 using namespace bd;
-using namespace boost;
 using namespace tst;
 
 //#define _TST_SOCI
@@ -38,6 +37,8 @@ int testSoci() {
 #endif
 
 int main(int argc, char* argv[]){
+	Logger::init();
+	Logger::_info("Programe started");
 #ifdef _TST_SOCI
 	testSoci();
 #elif defined _TST_EVENT
@@ -98,6 +99,7 @@ int main(int argc, char* argv[]){
 	context.getPersistence()->readSet(&list, "where inr in('11', '222')");
 	cout << list.size() << endl;
 #endif
+	Logger::_debug("Programe finished");
 	system("pause");
 	return 0;
 

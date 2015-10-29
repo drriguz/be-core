@@ -155,5 +155,8 @@
     <ClInclude Include="demo\Sysmod.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\bd\logger.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

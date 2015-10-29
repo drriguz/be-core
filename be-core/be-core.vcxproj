@@ -42,6 +42,7 @@
     <ClInclude Include="include\bd\auth.h" />
     <ClInclude Include="include\bd\context.h" />
     <ClInclude Include="include\bd\eventRule.h" />
+    <ClInclude Include="include\bd\logger.hpp" />
     <ClInclude Include="include\bd\register.h" />
     <ClInclude Include="include\bd\session.h" />
     <ClInclude Include="include\bd\persistence.h" />
