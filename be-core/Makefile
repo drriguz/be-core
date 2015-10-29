@@ -1,15 +1,18 @@
-CORE_SRC_DIR=./src
-DEMO_SRC_DIR=./demo
+CORE_SRC_DIR=./demo/main.cpp ./demo/register.cpp ./demo/Events.cpp
+DEMO_SRC_DIR=./src/attribute.cpp  ./src/datafield.cpp  ./src/module.cpp      ./src/persistence.cpp   ./src/session.cpp \
+			 ./src/auth.cpp       ./src/event.cpp      ./src/moduleList.cpp  ./src/presentation.cpp  ./src/transaction.cpp \
+			 ./src/context.cpp    ./src/eventRule.cpp  ./src/object.cpp      ./src/rule.cpp          ./src/utils.cpp
 INC_DIR=./include
-#agg_win32_bmp.cpp agg_platform_support.cpp
+BOOST_INC_DIR=C:/Boost/include/boost-1_59
+BOOST_LIB_DIR=C:/Boost/lib-tdmgcc-64
 
 CC = g++
-COMPILER_FLAGS = -w
-LINKER_FLAGS = -lsqlite3 -lsoci_core -lsoci-sqlite3
+COMPILER_FLAGS = -w -std=c++11
+LINKER_FLAGS = -lsqlite3 -lsoci_core_3_2 -llibsoci_sqlite3_3_2
 
-SRC= $(wildcard ${CORE_SRC_DIR} *.c) $(wildcard ${DEMO_SRC_DIR} /*.c)
-HEADERS = -I./include -I./lib/soci/include -I./lib/sqlite3
-LIBS = -L./lib/sqlite3 -L./lib/soci/lib
+SRC= ${CORE_SRC_DIR} ${DEMO_SRC_DIR}
+HEADERS = -I./include -I./lib/soci/include -I./lib/sqlite3 -I${BOOST_INC_DIR}
+LIBS = -L./lib/sqlite3 -L./lib/soci/lib -L${BOOST_LIB_DIR}
 
 OBJ_NAME = demo.exe
 

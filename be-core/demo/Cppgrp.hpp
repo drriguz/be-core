@@ -17,8 +17,8 @@ namespace tst {
 			this->_cpplst = new CppList();
             this->_cppgrp_init_1000 = new Cppgrp_Init_1000(this);
             this->_cppgrp_btn_event_100 = new Cppgrp_btn_event_100(this);
-			this->_btn = new Datafield(typeid(std::string));
-			this->_tmp = new Datafield(typeid(int));
+			this->_btn = new Datafield(typeid(std::string).name());
+			this->_tmp = new Datafield(typeid(int).name());
             this->addChild();
         }
         ~Cppgrp(){

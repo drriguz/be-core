@@ -9,9 +9,9 @@ namespace tst{
     class Cpp:public Module, public PersistenceAble{
     public:
         Cpp(){
-            this->_inr = new Datafield(typeid(std::string));
-            this->_remark = new Datafield(typeid(std::string));
-            this->_number = new Datafield(typeid(int));            
+            this->_inr = new Datafield(typeid(std::string).name());
+            this->_remark = new Datafield(typeid(std::string).name());
+            this->_number = new Datafield(typeid(int).name());
         }
 		Cpp(const Cpp& cpp) {
 			this->_inr = new Datafield(*cpp._inr);

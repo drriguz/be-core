@@ -4,7 +4,7 @@
 #include <boost\any.hpp>
 
 namespace bd{
-    class Attribute;
+    class Attribute;	
 }
 
 namespace bd{

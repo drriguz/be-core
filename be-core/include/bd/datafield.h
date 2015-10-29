@@ -21,7 +21,7 @@ namespace bd{
     public:
         Datafield();
 		Datafield(const Datafield& field);
-        Datafield(const type_info& type);
+        Datafield(const std::string& type);
         ~Datafield();
     public:
         virtual boost::any* getValue() const;        
