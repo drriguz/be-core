@@ -7,6 +7,7 @@
 namespace bd{
     class Module;
     class Transaction;
+	class Context;
 }
 namespace bd{
     class Register{
@@ -14,7 +15,7 @@ namespace bd{
         Register();
         ~Register();
     public:
-        static bool createTransaction(const std::string &name, Transaction* &trans);
+        static bool createTransaction(const std::string &name, Transaction* &trans, Context &ctx);
     };
 }
 #endif

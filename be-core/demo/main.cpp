@@ -14,6 +14,7 @@ using namespace boost;
 using namespace tst;
 
 //#define _TST_SOCI
+#define _TST_SYSMOD
 #ifdef _TST_SOCI
 
 int testSoci() {
@@ -76,6 +77,13 @@ int main(int argc, char* argv[]){
 	for (it = modified.begin(); it != modified.end(); it++) {
 		cout << (string)(it->first) << endl;;
 	}
+#elif defined _TST_SYSMOD	
+	bd::Context context;
+	Session* session = context.getSession();
+	session->chain(std::string("cpptst"), true);
+	Datafield* m = (Datafield*)session->getObject("cppgrp/cpp/inr");
+	Datafield* sysmod = (Datafield*)session->getObject("sysmod/user");	
+	session->chain(std::string("cpptst"), true);
 #else	
 	cout << "Done!" << endl;
 	bd::Context context;
@@ -89,8 +97,9 @@ int main(int argc, char* argv[]){
 	list.clear();
 	context.getPersistence()->readSet(&list, "where inr in('11', '222')");
 	cout << list.size() << endl;
+#endif
 	system("pause");
 	return 0;
-#endif
+
 }
 

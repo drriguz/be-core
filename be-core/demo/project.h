@@ -5,5 +5,6 @@
 #include "Cppgrp.hpp"
 #include "Events.h"
 #include "Cpptst.hpp"
+#include "Sysmod.hpp"
 #include "Entity.h"
 #endif

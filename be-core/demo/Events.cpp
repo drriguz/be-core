@@ -62,3 +62,14 @@ bool Cpptst_btn_event_500::invoke(Context &context, Event eventType) {
 	std::cout <<"Tmp=" << tmp << std:: endl;
 	return true;
 }
+//
+Sysmod_Init_10::Sysmod_Init_10(Sysmod *parent) :Rule((Module*)parent) {
+	this->_order = 10;
+}
+Sysmod_Init_10::~Sysmod_Init_10() {
+
+}
+bool Sysmod_Init_10::invoke(Context &context) {
+	std::cout << "Sysmod/Init/10 invoked!" << std::endl;
+	return true;
+}

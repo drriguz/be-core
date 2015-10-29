@@ -8,6 +8,7 @@ namespace tst {
 	class Cppgrp;
 	class Cpptst;
 	class Cpp;
+	class Sysmod;
 }
 
 using namespace bd;
@@ -43,6 +44,15 @@ namespace tst {
 		~Cpptst_btn_event_500();
 	public:
 		virtual bool invoke(Context &context, Event eventType);
+	};
+
+	//
+	class Sysmod_Init_10 :public Rule {
+	public:
+		Sysmod_Init_10(Sysmod *parent);
+		~Sysmod_Init_10();
+	public:
+		virtual bool invoke(Context &context);
 	};
 }
 #endif

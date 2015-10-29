@@ -41,7 +41,7 @@ std::stack<Transaction*> Session::getTransactionStack(){
 
 bool Session::chain(const std::string &trans, bool returnCall){
     Transaction *t = NULL;
-    bool result = Register::createTransaction(trans, t);
+    bool result = Register::createTransaction(trans, t, *this->_context);
     if (!result)
         return false;
     if (this->_transaction)
