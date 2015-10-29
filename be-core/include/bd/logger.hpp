@@ -15,11 +15,14 @@ namespace src = boost::log::sources;
 namespace sinks = boost::log::sinks;
 namespace keywords = boost::log::keywords;
 
+static src::severity_logger< logging::trivial::severity_level > lg;
+
 namespace bd {
 	class Logger {
 	public:
 		static void init() {
 			logging::add_file_log(
+					keywords::open_mode = std::ios::app,
 					keywords::file_name = "eibs_%N.log",
 					keywords::rotation_size = 10 * 1024 * 1024,
 					keywords::time_based_rotation = sinks::file::rotation_at_time_point(0, 0, 0),
@@ -32,14 +35,16 @@ namespace bd {
 		}
 	public:
 		template<typename T>
-		static void _debug(T msg) {			
-			src::severity_logger< logging::trivial::severity_level > lg;
+		static void _debug(T msg) {						
 			BOOST_LOG_SEV(lg, logging::trivial::debug) << msg;
 		}
 		template<typename T>
-		static void _info(T msg) {
-			src::severity_logger< logging::trivial::severity_level > lg;
+		static void _info(T msg) {			
 			BOOST_LOG_SEV(lg, logging::trivial::info) << msg;
+		}
+		template<typename T>
+		static void _error(T msg) {			
+			BOOST_LOG_SEV(lg, logging::trivial::error) << msg;
 		}
 	};
 }
