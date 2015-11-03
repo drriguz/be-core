@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <boost/any.hpp>
@@ -13,7 +12,7 @@ using namespace bd;
 using namespace tst;
 
 //#define _TST_SOCI
-#define _TST_SYSMOD
+#define _TST_LOCK_
 #ifdef _TST_SOCI
 
 int testSoci() {
@@ -36,6 +35,57 @@ int testSoci() {
 }
 #endif
 
+#include <iostream>
+#include <vector>
+#include <map>
+#include <boost/thread.hpp>
+#include <boost/format.hpp>
+#include <boost/tokenizer.hpp>
+#include <boost/algorithm/string.hpp>
+#include <windows.h>
+
+std::map<std::string, std::string> msgMap;
+
+int receive() {
+	int s;
+	std::cin >> s;
+	return s;
+}
+int i = 0;
+int message(boost::mutex &m, std::string& msg, int* result){
+	boost::mutex::scoped_lock lock(m);
+	i++;
+	std::string msgNo = "";
+	msgNo += i;
+	std::cout << msg << " " << msgNo;
+	int r = receive();
+	*result = r;
+	lock.unlock();
+	return 0;
+}
+
+
+void test(){
+	int a = 1;
+	std::string msg = "Hello World!";
+	boost::mutex  mu;
+	int result = -1;
+	message(mu, msg, &result);
+	boost::mutex::scoped_lock lock(mu);
+	if (result == 1) {
+		std::cout << "Ok!\n";
+	}
+	else {
+		std::cout << "Cancle!\n";
+	}
+}
+int main(int argc, char* argv[]) {
+	test();
+	system("pause");
+	return 1;
+}
+
+/*
 int main(int argc, char* argv[]){
 	Logger::init();
 	Logger::_info("Programe started");
@@ -102,6 +152,6 @@ int main(int argc, char* argv[]){
 	Logger::_debug("Programe finished");
 	system("pause");
 	return 0;
-
 }
 
+*/

@@ -23,3 +23,7 @@ std::string Attribute::getAttribute(const std::string &attribute) const{
 void Attribute::setAttribute(const std::string &attrName, const std::string &value){
     this->_attrMap.insert(std::pair<const std::string, std::string>(attrName, value));
 }
+
+void Attribute::clear() {
+	this->_attrMap.clear();
+}

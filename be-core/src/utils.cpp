@@ -5,9 +5,9 @@
 #include "bd/datafield.h"
 #include "bd/event.h"
 
-#include <boost\format.hpp>
-#include <boost\tokenizer.hpp>
-#include <boost\algorithm\\string.hpp>
+#include <boost/format.hpp>
+#include <boost/tokenizer.hpp>
+#include <boost/algorithm/string.hpp>
 
 using namespace bd;
 

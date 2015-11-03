@@ -7,6 +7,8 @@
 #define ATTR_MODIFIED  "MODIFIED"
 #define ATTR_DISABLED  "DISABLED"
 #define ATTR_READONLY  "READONLY"
+#define ATTR_ERROR     "ERROR"
+#define ATTR_TIP       "TIP"
 #define ATTR_INVISIBLE "INVISIBLE"
 #define ATTR_URL       "URL"
 
@@ -18,6 +20,7 @@ namespace bd{
     public:
         std::string getAttribute(const std::string &attrName) const;
         void setAttribute(const std::string &attrName, const std::string &value);
+		void clear();
     protected:
         std::map<const std::string, std::string> _attrMap;
     };
