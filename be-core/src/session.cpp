@@ -101,8 +101,8 @@ bool Session::invokeEventRule(Datafield &datafield, Event type){
 	return datafield.invokeEventRules(*this->_context, type);
 }
 
-bool Session::invokeCheckRule(const Datafield &datafield){
-    return false;
+bool Session::invokeCheckRule(Datafield &datafield){
+	return datafield.invokeEventRules(*this->_context, EventType::CHECK);
 }
 
 bool Session::invokeInitRule(){

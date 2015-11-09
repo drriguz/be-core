@@ -33,7 +33,7 @@ namespace bd{
         virtual bool setValue(const std::string &url, const std::string& value);
         virtual bool setValue(const std::string &url, int value);
         virtual bool invokeEventRule(Datafield &datafield, Event type);
-        virtual bool invokeCheckRule(const Datafield &datafield);
+        virtual bool invokeCheckRule(Datafield &datafield);
         virtual bool invokeInitRule();
 
 		virtual Module* getStaticModule(const std::string &name);

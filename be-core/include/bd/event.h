@@ -10,6 +10,7 @@ namespace bd{
 namespace bd{
     enum EventType{
         DEFAULT,
+		CHECK,
         ON_CHANGE,
         ON_CLICK,
         ON_DBLCLICK,

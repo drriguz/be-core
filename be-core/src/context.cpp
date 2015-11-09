@@ -4,6 +4,7 @@
 #include "bd/module.h"
 #include "bd/session.h"
 #include "bd/presentation.h"
+#include "bd/extApi.h"
 
 using namespace bd;
 
@@ -23,6 +24,8 @@ Context::~Context(){
 		delete this->_presentation;
 	if (this->_persistence)
 		delete this->_persistence;
+	if (this->_uiSupport)
+		delete this->_uiSupport;
 }
 
 Auth* Context::getAuth(){
@@ -83,4 +86,11 @@ void Context::setEntity(const std::string &entityName){
 
 void Context::setErrorCode(int errorCode){
     this->_errorCode = errorCode;
+}
+
+void Context::setUiSupport(UiSupport* ui) {
+	this->_uiSupport = ui;
+}
+UiSupport* Context::getUiSupport() {
+	return this->_uiSupport;
 }

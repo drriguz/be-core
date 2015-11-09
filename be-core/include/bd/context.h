@@ -9,6 +9,7 @@ namespace bd{
 	class Presentation;
     class Persistence;
 	class Session;
+	class UiSupport;
 }
 
 namespace bd{
@@ -32,11 +33,14 @@ namespace bd{
         virtual void setErrorCode(int errorCode);
 		virtual Session* getSession();
 		virtual Presentation* getPresentation();
+		virtual void setUiSupport(UiSupport* ui);
+		virtual UiSupport* getUiSupport();
     protected:
 		Session* _session;
         Auth *_auth;
         Persistence *_persistence;
 		Presentation *_presentation;
+		UiSupport *_uiSupport;
         int _errorCode;
         std::string _sessionId;
         std::string _entityName;

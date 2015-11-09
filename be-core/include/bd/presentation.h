@@ -7,6 +7,7 @@
 namespace bd{
 	class Object;
 	class Attribute;
+	class Module;
 
     class Presentation{
 	public:

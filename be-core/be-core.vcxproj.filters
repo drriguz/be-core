@@ -158,6 +158,9 @@
     <ClInclude Include="include\bd\logger.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\bd\extApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
