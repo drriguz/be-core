@@ -51,16 +51,7 @@
     <ClCompile Include="src\utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo\register.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\transaction.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="demo\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="demo\Events.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\presentation.cpp">
@@ -71,24 +62,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="demo\Cpp.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Entity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Cpptst.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\project.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Cppgrp.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Events.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="include\bd\attribute.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -147,12 +120,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\bd\utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\CppList.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Sysmod.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\bd\logger.hpp">

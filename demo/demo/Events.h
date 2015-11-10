@@ -14,6 +14,7 @@ namespace tst {
 using namespace bd;
 
 namespace tst {
+
     class Cppgrp_Init_1000 :public Rule{
     public:
 		Cppgrp_Init_1000(Cppgrp* parent);
@@ -55,4 +56,6 @@ namespace tst {
 		virtual bool invoke(Context &context);
 	};
 }
+
+
 #endif

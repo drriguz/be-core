@@ -11,8 +11,7 @@ using namespace std;
 using namespace bd;
 using namespace tst;
 
-//#define _TST_SOCI
-#define _TST_LOCK_
+#define _TST_EVENT
 #ifdef _TST_SOCI
 
 int testSoci() {
