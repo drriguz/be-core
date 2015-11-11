@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4C767AAC-1C50-4802-B2AE-E4138444310F}</ProjectGuid>
+    <ProjectGuid>{30F7C7EB-34BF-4F96-BF13-96FFFEE3A08C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>demo</RootNamespace>
+    <RootNamespace>tst</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -89,13 +89,10 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\be-core\include;$(BOOST_DIR)\include\boost-1_59;$(SolutionDir)\be-core\lib\soci\include;$(SolutionDir)\be-core\lib\sqlite3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BOOST_DIR)\lib;$(SolutionDir)\be-core\lib\soci\lib;$(SolutionDir)\be-core\lib\sqlite3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>soci_core_3_2.lib;soci_sqlite3_3_2.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -149,31 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\be-core\be-core.vcxproj">
-      <Project>{9ac06881-4f8b-4f4d-9887-a55520a6eeb9}</Project>
-    </ProjectReference>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="demo\Cpp.h" />
-    <ClInclude Include="demo\CppEntity.h" />
-    <ClInclude Include="demo\Cppgrp.h" />
-    <ClInclude Include="demo\CppList.h" />
-    <ClInclude Include="demo\Cpptst.h" />
-    <ClInclude Include="demo\project.h" />
-    <ClInclude Include="demo\Sysmod.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="demo\Cpp.cpp" />
-    <ClCompile Include="demo\Cppgrp.cpp" />
-    <ClCompile Include="demo\CppList.cpp" />
-    <ClCompile Include="demo\Cpptst.cpp" />
-    <ClCompile Include="demo\main.cpp" />
-    <ClCompile Include="demo\register.cpp" />
-    <ClCompile Include="demo\Sysmod.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="demo\sqlite3.exe" />
-    <None Include="demo\tst.db" />
+    <ClInclude Include="tst.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,39 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="demo\Cpp.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Cppgrp.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\CppList.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Cpptst.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Entity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo\Events.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="demo\project.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo\Sysmod.hpp">
+    <ClInclude Include="demo\Cpp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\Cppgrp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\CppList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\Sysmod.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\Cpptst.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\CppEntity.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="demo\Events.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="demo\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="demo\register.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\Cppgrp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\CppList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\Sysmod.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\Cpptst.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\Cpp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
