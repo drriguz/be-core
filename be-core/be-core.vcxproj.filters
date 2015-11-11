@@ -60,6 +60,9 @@
     <ClCompile Include="src\moduleList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\proxy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\bd\attribute.h">
@@ -126,6 +129,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\bd\extApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bd\proxy.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

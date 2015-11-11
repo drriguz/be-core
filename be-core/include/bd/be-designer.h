@@ -15,6 +15,7 @@
 #include "datafield.h"
 #include "event.h"
 #include "module.h"
+#include "proxy.h"
 #include "moduleList.h"
 #include "panel.h"
 #include "transaction.h"

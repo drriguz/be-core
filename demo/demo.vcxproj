@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo\Cpp.h" />
-    <ClInclude Include="demo\CppEntity.h" />
     <ClInclude Include="demo\Cppgrp.h" />
     <ClInclude Include="demo\CppList.h" />
     <ClInclude Include="demo\Cpptst.h" />

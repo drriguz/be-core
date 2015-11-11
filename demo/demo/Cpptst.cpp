@@ -12,7 +12,9 @@ Cpptst::Cpptst(Context* context) :Transaction() {
 	this->_cppgrp = new Cppgrp();
 	this->_cpptst_init_10 = new Cpptst_Init_10(this);
 	this->_cppgrp_btn_event_500 = new Cpptst_btn_event_500(this);
-
+	//
+	this->_sysmod->setRecgrp(this->_cppgrp);
+	//
 	Module* sysmod = context->getSession()->getStaticModule("sysmod");
 	if (sysmod)
 		this->_sysmod = (Sysmod*)sysmod;

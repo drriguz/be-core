@@ -4,7 +4,6 @@
 #include <soci.h>
 #include <vector>
 #include "Cpp.h"
-#include "CppEntity.h"
 
 using namespace bd;
 using namespace tst;

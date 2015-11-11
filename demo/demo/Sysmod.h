@@ -6,6 +6,7 @@
 using namespace bd;
 namespace tst {
 	class Sysmod;
+	class Cppgrp;
 
 	class Sysmod_Init_10 :public Rule {
 	public:
@@ -18,7 +19,6 @@ namespace tst {
 	class Sysmod :public Module{
 	public:
 		Sysmod();
-		Sysmod(const Sysmod& sysmod);
 		~Sysmod();
 	public:
 		virtual void addChild();
@@ -32,10 +32,13 @@ namespace tst {
 		Datafield* get_Bch();
 		Datafield* get_Token();
 
+		Cppgrp* getRecgrp();
+		void setRecgrp(Cppgrp* recgrp);
 	protected:
 		Datafield* _user;
 		Datafield* _bch;
 		Datafield* _token;
+		ProxyModule* _recgrp;
 		Sysmod_Init_10* _sysmod_Init_10;
 	};
 

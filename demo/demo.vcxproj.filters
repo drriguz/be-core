@@ -33,9 +33,6 @@
     <ClInclude Include="demo\Cpptst.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo\CppEntity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="demo\main.cpp">

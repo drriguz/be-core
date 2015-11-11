@@ -1,6 +1,7 @@
 
 #include "bd/be-designer.h"
 #include "Sysmod.h"
+#include "Cppgrp.h"
 
 using namespace bd;
 using namespace tst;
@@ -8,12 +9,7 @@ Sysmod::Sysmod() {
 	this->_user = new Datafield(typeid(std::string).name());
 	this->_bch = new Datafield(typeid(std::string).name());
 	this->_token = new Datafield(typeid(std::string).name());
-	this->_sysmod_Init_10 = new Sysmod_Init_10(this);
-}
-Sysmod::Sysmod(const Sysmod& sysmod) {
-	this->_user = new Datafield(*sysmod._user);
-	this->_bch = new Datafield(*sysmod._bch);
-	this->_token = new Datafield(*sysmod._token);
+	this->_recgrp = new ProxyModule();
 	this->_sysmod_Init_10 = new Sysmod_Init_10(this);
 }
 Sysmod::~Sysmod() {
@@ -23,6 +19,8 @@ Sysmod::~Sysmod() {
 		delete this->_bch;
 	if (this->_token)
 		delete this->_token;
+	if (this->_recgrp)
+		delete this->_recgrp;
 	if (this->_sysmod_Init_10)
 		delete this->_sysmod_Init_10;
 }
@@ -59,6 +57,14 @@ Datafield* Sysmod::get_Bch() {
 }
 Datafield* Sysmod::get_Token() {
 	return this->_token;
+}
+
+Cppgrp* Sysmod::getRecgrp() {
+	return (Cppgrp*) this->_recgrp->getHost();
+
+}
+void Sysmod::setRecgrp(Cppgrp *cppgrp) {
+	this->_recgrp->setHost(cppgrp);
 }
 //
 Sysmod_Init_10::Sysmod_Init_10(Sysmod *parent) :Rule((Module*)parent) {
